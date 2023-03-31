@@ -13,7 +13,7 @@ function App() {
 
   function onSearch(text) {
 
-    if(text.lengt >= 3){
+    if(text.length <= 3){
       fetch(`http://localhost:3001/countries/${text}`) //<<DB
         .then((response) => response.json())
         .then((data) => {
@@ -49,7 +49,7 @@ function App() {
       <Route exact path="/" element={<Inicio/>}></Route>
       <Route path ="/home" element={<Home/>}></Route>
       <Route path ="/about" element={<About/>}></Route>
-      <Route path ="/countries/:id" element={<Detail/>}></Route>
+      <Route path ="/countries/id" element={<Detail/>}></Route>
       <Route path ="/create" element={<Form/>}></Route>
       </Routes>
     </div>
