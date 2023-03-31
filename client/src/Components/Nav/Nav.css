@@ -1,0 +1,10 @@
+.link {
+    padding: 5px;
+    width: 55px;
+    height:55px;
+    border-radius: 50%;
+    text-decoration:none;
+    margin-right:10px;
+    margin-left:4px;
+    margin-bottom: -7px;
+}
