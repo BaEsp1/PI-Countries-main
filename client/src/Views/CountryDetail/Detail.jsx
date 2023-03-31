@@ -78,13 +78,26 @@ export default function Detail() {
             
             <Hu>{country.name}</Hu>
             
-            <ImgPioli  src={country.image} alt={country?.name} /> 
-            <Tit> Status : {country.status} </Tit> <br/><br/><br/>
-            <Tit> Specie : {country.species}  </Tit><br/><br/><br/>
-            <Tit> Gender : {country.gender}  </Tit><br/><br/><br/>
-            <Tit> Origin : {country.origin?.name}  </Tit>
+            <ImgPioli  src={country.flags} alt={country?.name} /> 
+            <Tit> ID : {country.id} </Tit> <br/><br/><br/>
+            <Tit> Capital : {country.capital}  </Tit><br/><br/><br/>
+            <Tit> Region : {country.region}  </Tit><br/><br/><br/>
+            <Tit> Continent : {country.continents}  </Tit><br/><br/><br/>
+            <Tit> Area : {country.area}  </Tit><br/><br/><br/>
+            <Tit> Population : {country.population}  </Tit><br/><br/><br/>
 
         </DiStyle>
         
         );
     }
+
+//     📍 DETAIL PAGE | en esta vista se deberá mostrar toda la información específica de un país:
+
+// ID (Código de tres letras).
+// Nombre.
+// Imagen de la bandera.
+// Continente.
+// Capital.
+// Subregión (si tiene).
+// Área (si tiene).
+// Población.

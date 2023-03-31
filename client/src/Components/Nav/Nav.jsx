@@ -19,10 +19,12 @@ function Nav ({onSearch}) {
 
     return (
         <div>
-            <Link to={"/home"} className="link"><BnCheto> Home </BnCheto></Link>
-            <Link to={"/about"} className="link"><BnCheto> About </BnCheto></Link>
-            <Link to={'/'} className="link" ><BnCheto>Henry Countries</BnCheto></Link>
 
+            {/* <Link to={"/home"} className="link"><BnCheto> Home </BnCheto></Link> */}
+            <Link to={'/'} className="link" ><BnCheto>Henry Countries</BnCheto></Link>
+            <Link to={"/about"} className="link"><BnCheto> About me</BnCheto></Link>
+            <Link to={"/create"} className="link"><BnCheto>Add Activity</BnCheto></Link>
+ 
             <SearchBar onSearch={onSearch}/>
         </div>
     )

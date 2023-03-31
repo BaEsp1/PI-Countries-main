@@ -1,10 +1,11 @@
 import './App.css';
-import Inicio from './Components/LandingPage/inicio';
-import Nav from './Components/Nav/Nav';
-import Home from './Components/Home/home';
-import About from './Components/About/About';
 import {Routes,Route, useNavigate, useLocation} from "react-router-dom"
-import Detail from './Components/CountryDetail/Detail';
+import Nav from './Components/Nav/Nav';
+import Inicio from './Views/LandingPage/inicio';
+import Home from './Views/Home/home';
+import About from './Views/About/About';
+import Detail from './Views/CountryDetail/Detail';
+import Form  from './Views/Form/Form';
 
 function App() {
   const location= useLocation();
@@ -45,11 +46,11 @@ function App() {
   {location.pathname !== "/" && <Nav onSearch={onSearch} />} 
 
       <Routes>
-      <Route path="/" element={<Inicio/>}></Route>
+      <Route exact path="/" element={<Inicio/>}></Route>
       <Route path ="/home" element={<Home/>}></Route>
       <Route path ="/about" element={<About/>}></Route>
       <Route path ="/countries/:id" element={<Detail/>}></Route>
-
+      <Route path ="/create" element={<Form/>}></Route>
       </Routes>
     </div>
   );
