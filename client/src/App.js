@@ -49,7 +49,7 @@ function App() {
       <Route exact path="/" element={<Inicio/>}></Route>
       <Route path ="/home" element={<Home/>}></Route>
       <Route path ="/about" element={<About/>}></Route>
-      <Route path ="/countries/id" element={<Detail/>}></Route>
+      <Route path ="/detail/:id" element={<Detail/>}></Route>
       <Route path ="/create" element={<Form/>}></Route>
       </Routes>
     </div>

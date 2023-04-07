@@ -13,9 +13,10 @@ const axios = require('axios');
             name: e.name.common,
             flags: e.flags[1],
             continent: e.continents[0],
-            capital: e.capital ? e.capital[0] : 'No se encontró capital',
+            capital: e.capital ? e.capital[0] : 'Could not find the capital',
+            subregion: e.subregion,
             region:e.region,
-            area: e.area ? e.area : "No se encontró el area",
+            area: e.area ? e.area : "Could not find area",
             population: e.population
         }
       })

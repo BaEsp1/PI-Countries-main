@@ -1,5 +1,16 @@
-import Card from "../Card/Card"
-import styled from "styled-components"
+
+import styled from "styled-components";
+import { useDispatch, useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import { getCountries } from "../Redux/actions";
+import { Link } from "react-router-dom";
+
+const DivCard = styled.div`
+border: 1px solid black;
+width: fit-content;
+height: fit-content;
+border-radious:10px;
+`
 
 const Conta = styled.div`
 border:1px solid black;
@@ -12,58 +23,75 @@ margin:auto;
 `;
 
 const CardsContainer = () => {
+    const countries = useSelector((state) => state.countries);
+    const dispatch = useDispatch();
 
-    const countries = [
-    {"name":{"common":"Barbados","official":"Barbados","nativeName":{"eng":{"official":"Barbados","common":"Barbados"}}},
-    "cca3":"BRB",
-    "capital":["Bridgetown"],
-    "region":"Americas",
-    "subregion":"Caribbean",
-    "area":430.0,
-    "population":287371,
-    "continents":["North America"],
-    "flags":{"png":"https://flagcdn.com/w320/bb.png","svg":"https://flagcdn.com/bb.svg",}},
     
-    {"name":{"common":"Réunion","official":"Réunion Island","nativeName":{"fra":{"official":"Ile de la Réunion","common":"La Réunion"}}},
-    "cca3":"REU",
-    "capital":["Saint-Denis"],"altSpellings":["RE","Reunion"],
-    "region":"Africa",
-    "subregion":"Eastern Africa",
-    "area":2511.0,
-    "population":840974,"car":{"signs":["F"],"side":"right"},"timezones":["UTC+04:00"],
-    "continents":["Africa"],
-    "flags":{"png":"https://flagcdn.com/w320/re.png","svg":"https://flagcdn.com/re.svg"}},
-
-    {"name":{"common":"Suriname","official":"Republic of Suriname","nativeName":{"nld":{"official":"Republiek Suriname","common":"Suriname"}}},
-    "cca3":"SUR",
-    "capital":["Paramaribo"],
-    "region":"Americas",
-    "subregion":"South America"
-    ,"area":163820.0,
-    "population":586634,
-    "continents":["South America"],
-    "flags":{"png":"https://flagcdn.com/w320/sr.png","svg":"https://flagcdn.com/sr.svg"}},
-
-    {"name":{"common":"Namibia","official":"Republic of Namibia"},
-    "cca3":"NAM",
-    "region":"Africa",
-    "subregion":"Southern Africa",
-    "area":825615.0,
-    "population":2540916,
-    "continents":["Africa"],
-    "flags":{"png":"https://flagcdn.com/w320/na.png","svg":"https://flagcdn.com/na.svg",}}
-];
+    //Paginado
+    const [currentPage, setCurrentPage] = useState(0);
     
+    let nextPage = () => {
+        if (countries.length <= currentPage + 10) {
+        setCurrentPage(currentPage);
+        } else setCurrentPage(currentPage + 10);
+    };
+
+    let prevPage = () => {
+        if (currentPage < 9) {
+        setCurrentPage(0);
+        } else {
+        setCurrentPage(currentPage - 10);
+        }
+    };
+
+    const firstPage = () => {
+        setCurrentPage(0);
+    };
+
+    const lastPage = () => {
+        setCurrentPage(countries.length - 10);
+        console.log(currentPage);
+    };
+
+    useEffect(() => {
+        firstPage()
+    }, [countries]);
+    
+    
+    const filteredC = countries.slice(currentPage, currentPage + 10);
+    
+    useEffect(() => {
+    dispatch(getCountries())
+    }, [dispatch])
+
     return(
         <Conta>
-            {countries.map((country) => <Card 
-                                        flags = {country.flags.png}
-                                        name = {country.name.common}
-                                        continents = {country.continents}
-                                        />)}
+            <div>
+            <button onClick={firstPage}> {'<<'} </button>
+            <button onClick={prevPage}> {'<'} </button>
+            <button onClick={nextPage}> {'>'} </button>
+            <button onClick={lastPage}> {'>>'} </button>
+            </div>
+            {filteredC.map((country) => {
+                        return (
+                            <DivCard>
+                        <Link to={`/detail/${country.id}`}>
+                        <img src={country.flags} alt={country.name}/>
+                        <h2>{country.name}</h2>
+                        <h2>{country.continent}</h2>
+                        </Link>
+                            </DivCard>
+                            )})}
         </Conta>
     )
 }
 
 
 export default CardsContainer;
+
+// <Card 
+// id ={country.id}
+// flags = {country.flags.png}
+// name = {country.name.common}
+// continents = {country.continents}
+//         />

@@ -31,9 +31,10 @@ async function  getCountriesByID (req, res) {
             countries = {
                 id: countries.id,
                 name: countries.name,
-                image: countries.image,
+                flags: countries.flags,
                 continent: countries.continent,
                 capital: countries.capital,
+                region: countries.region,
                 subregion: countries.subregion,
                 area: countries.area,
                 population: countries.population,

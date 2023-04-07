@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
-import {React} from "react";
+import {React, useEffect} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { getDetail } from "../../Components/Redux/actions";
+import { useDispatch } from "react-redux";
+import activityDetail from "../../Components/Activity/ActivityDetail";
 
 const DiStyle= styled.div`
 background-color: white;
@@ -34,11 +38,6 @@ box-shadow: 5px 2px 2px black;
 
 const Tit = styled.h2`
 color: Black;
-position: absolute;
-left: 80;
-top: 50;
-padding: 30px;
-margin-right: 200px;
 `;
 
 const Hu = styled.h1`
@@ -49,43 +48,34 @@ font-weight:bold;
 
 
 export default function Detail() {
-
-    const {detailId} = useParams();
-
-    const [country, setCountry] = React.useState({});
-
-        React.useEffect(() => {
-    fetch(`http://localhost:3001/countries/${detailId}`)
-            .then((response) => response.json())
-            .then((count) => {
-                if (count.name) {
-                    setCountry(count);
-                } else {
-                    window.alert('Country not found');
-                }
-            })
-            .catch((err) => {
-                window.alert('Country not found');
-            });
-            return setCountry({});
-        }, [detailId]);
-
-        
+    const detail = useSelector((state) => state.detail);
+    const dispatch = useDispatch();
+  
+    let { id } = useParams();
+    useEffect(() => {
+      dispatch(getDetail(id));
+    }, [id]);
+   
+  
+   console.log(detail, "COUNTRY DETAIL")
 
         return (
         <DiStyle> 
-            <Link to="/home"> <BtAgrega> Volver </BtAgrega> </Link>
-            
-            <Hu>{country.name}</Hu>
-            
-            <ImgPioli  src={country.flags} alt={country?.name} /> 
-            <Tit> ID : {country.id} </Tit> <br/><br/><br/>
-            <Tit> Capital : {country.capital}  </Tit><br/><br/><br/>
-            <Tit> Region : {country.region}  </Tit><br/><br/><br/>
-            <Tit> Continent : {country.continents}  </Tit><br/><br/><br/>
-            <Tit> Area : {country.area}  </Tit><br/><br/><br/>
-            <Tit> Population : {country.population}  </Tit><br/><br/><br/>
+                <div>
+                <Link to="/home"><BtAgrega> Volver </BtAgrega> </Link>
+                    <Hu>{detail.name}</Hu>
+                <ImgPioli  src={detail.flags} alt={detail.name} /> 
+                <Tit> ID : {detail.id} </Tit>
+                <Tit> Capital : {detail.capital}  </Tit>
+                <Tit> Region : {detail.region}  </Tit>
+                <Tit> Sub Region: {detail.subregion}</Tit>
+                <Tit> Continent : {detail.continent}  </Tit>
+                <Tit> Area : {detail.area}  </Tit>
+                <Tit> Population : {detail.population}  </Tit>
 
+                 <activityDetail countryName={detail.name} activities={detail.activities}/>          
+                </div>
+            
         </DiStyle>
         
         );
