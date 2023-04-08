@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import validate from "./validate";
 import { Link } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import { getActivities , getCountries , postActivity} from "../../Components/Redux/actions";
+import { useSelector } from "react-redux";
 
 const FormDiv = styled.div`
 background-color:grey;
@@ -34,14 +37,26 @@ margin-left:25px;
 margin-bottom: -7px;
 `;
 
-export default function Form (data) {
+export default function Form () {
+const dispatch = useDispatch()
+
+
+const countries = useSelector(state => state.countries).sort((a, b) => {
+    if(a.name < b.name){
+        return -1;
+    }
+    if(a.name > b.name){
+        return 1;
+    }
+    return 0;
+})
 
 const [userData, setUserData] = useState({
     name: "",
     difficulty:"",
     duration:"",
     season:"",
-    countries:"",
+    idPais:[],
 })
 
 const [errors, setErrors] = useState({
@@ -49,8 +64,17 @@ const [errors, setErrors] = useState({
     difficulty:"",
     duration:"",
     season:"",
-    countries:"",
+    idPais:[],
 })
+
+useEffect(() => {
+    dispatch(getCountries())
+}, [dispatch])
+
+useEffect(() => {
+    dispatch(getActivities())
+}, [dispatch])
+
 
 const handleInputChange = (event) => {
     setUserData({
@@ -64,9 +88,31 @@ const handleInputChange = (event) => {
 
 };
 
+function handleSelectDifficulty(e) {
+    setUserData({
+        ...userData,
+        difficulty: e.target.value
+    })
+} 
+
+function handleSelectSeason(e) {
+    setUserData({
+        ...userData,
+        season: e.target.value
+    })
+} 
+
+function handleSelectCountries(id) {
+    setUserData({
+        ...userData,
+        idPais: [...userData.idPais , id.target.value]
+        
+    })
+} 
+
 const handleSubmit = (evento)=>{
     evento.preventDefault()
-    data(userData)
+    dispatch(postActivity(userData))
 };
 
     return(
@@ -85,8 +131,8 @@ const handleSubmit = (evento)=>{
         <br/>
     <label>
             Difficulty :
-            <select value={userData.difficulty} name="difficulty"  onChange={handleInputChange}>
-            <option value=""> Select </option>
+            <select  name="difficulty"  onChange={handleSelectDifficulty}>
+            <option value="" hidden> Select </option>
             <option value="1">1 - Very easy</option>
             <option value="2">2 - Easy </option>
             <option value="3">3 - Regular</option>
@@ -106,20 +152,24 @@ const handleSubmit = (evento)=>{
 
     <label>
             Season :
-            <select value={userData.season} name="season" onChange={handleInputChange}>
-            <option value=""> Select </option>
+            <select name="season" onChange={handleSelectSeason}>
+            <option value="" hidden> Select </option>
             <option value="Summer"> Summer </option>
             <option value="Autumn">Autumn</option>
             <option value="Winter">Winter</option>
             <option value="Spring">Spring</option>
             </select>
-            <Pe>{errors.season}</Pe>
     </label>
     <br/>
 
     <label>
             Countries :
-            <input type="text" value={userData.countries} name="countries" placeholder="Select the country or countries" onChange={handleInputChange}/>
+            <select name="countries" onChange={handleSelectCountries}>
+            <option value="" hidden> Select </option>
+            {countries.map(e => (
+                <option value={[e.id]} name="countries" key={e.id} >{e.name}</option>
+                ))}
+             </select>
             <Pe>{errors.countries}</Pe>
      </label>
     <br/>

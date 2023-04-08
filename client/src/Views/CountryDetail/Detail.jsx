@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { getDetail } from "../../Components/Redux/actions";
 import { useDispatch } from "react-redux";
-import activityDetail from "../../Components/Activity/ActivityDetail";
+import activityDetail from "../../Components/Activity/ActivityDetail"
 
 const DiStyle= styled.div`
 background-color: white;
@@ -73,7 +73,7 @@ export default function Detail() {
                 <Tit> Area : {detail.area}  </Tit>
                 <Tit> Population : {detail.population}  </Tit>
 
-                 <activityDetail countryName={detail.name} activities={detail.activities}/>          
+                <ctivityDetail countryName={detail.name} activities={detail.activities} />          
                 </div>
             
         </DiStyle>

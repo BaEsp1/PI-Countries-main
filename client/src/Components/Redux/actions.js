@@ -9,7 +9,7 @@ import {
     ORDER_POD,
     FIL_CONTINENT,
     FIL_ACTIVITY,
-    GET_ACTIVITY,
+    GET_ACTIVITIES,
     FAILURE,
 } from "./ActionName";
 
@@ -126,13 +126,13 @@ export function postActivity(activity) {
 
 };
 
-export function getActivity () {
+export function getActivities () {
 
     return async function(dispatch){
         try {
             const respBack = await axios.get(URL+"/activities")
             return dispatch({
-                type: GET_ACTIVITY,
+                type: GET_ACTIVITIES,
                 payload:respBack.data,
             })
         } catch (error) {

@@ -7,7 +7,7 @@ import {
         ORDER_POD,
         FIL_CONTINENT,
         FIL_ACTIVITY,
-        GET_ACTIVITY,
+        GET_ACTIVITIES,
         FAILURE,
         GET_COUNTRY,
 } from "./ActionName"
@@ -58,8 +58,8 @@ switch(action.type) {
                         ...state,
                         countries: state.countries.slice().sort(
                                 (a , b) =>{
-                                        if (a.name > b.name) return -1
-                                        if (b.name > a.name) return 1
+                                        if (a.name > b.name) return 1
+                                        if (b.name > a.name) return -1
                                         return 0;
                                 }
                         )
@@ -85,7 +85,7 @@ switch(action.type) {
                                         if (b.population > a.population) return 1;
                                         return 0;
                                 }
-                                ).reverse(),
+                                ),
                         };
                 }
         case FIL_CONTINENT: {
@@ -97,17 +97,26 @@ switch(action.type) {
                 };
         }
         case FIL_ACTIVITY:{
-        const allA = state.actividades;
-        const filtroActi = action.payload === "All" ? allA : allA.filter(c => c.activities.find((e) => e.name === action.payload))
-                return { 
+                return {
                         ...state,
-                        countries: filtroActi
-                };
+                        countries: state.countries.filter((c)=>{ return c.activities.some((a)=> a.name === action.payload)
+                           
+                        })
+                }
+
+        // const allA = state.actividades;
+        // const filtroActi = action.payload === "All" 
+        //                                         ? allA 
+        //                                         : allA.filter(c => {return c.activities.some((e) => e.name === action.payload)})
+        //         return { 
+        //                 ...state,
+        //                 countries: filtroActi
+        //         };
         }
-        case GET_ACTIVITY:{
+        case GET_ACTIVITIES:{
                 return{
                         ...state,
-                        activity: action.payload
+                        actividades: action.payload
                 }
         }
         case FAILURE:{

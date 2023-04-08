@@ -17,7 +17,7 @@ function validate (userData) {
         errors.season = 'You must select a season';
     }
 
-    if(userData.countries.length < 3 || !userData.countries){
+    if(userData.countries === ""){
         errors.countries = 'The activity must contain at least one country'
     }
     return errors

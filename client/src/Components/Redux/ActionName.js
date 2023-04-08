@@ -15,7 +15,7 @@ export const FIL_CONTINENT = 'FIL_CONTINENT'
 export const FIL_ACTIVITY = 'FIL_ACTIVITY'
 
 //  GET activity
-export const GET_ACTIVITY = 'GET_ACTIVITY'
+export const GET_ACTIVITIES = 'GET_ACTIVITIES'
 
 // RECOPILACION DE ERRORES:
 export const FAILURE = 'FAILURE'

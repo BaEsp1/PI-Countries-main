@@ -1,7 +1,7 @@
 import CardsContainer from "../../Components/CardsContainer/CardsC";
 import {useEffect} from "react";
 import { useDispatch, useSelector , connect} from "react-redux";
-import { filActivity, filContinent, getActivity, getCountries, orderASC, orderDSC, orderPOA, orderPOD} from "../../Components/Redux/actions";
+import { filActivity, filContinent, getActivities, getCountries, orderASC, orderDSC, orderPOA, orderPOD} from "../../Components/Redux/actions";
 import { useState } from "react";
 //import paginado
 
@@ -17,10 +17,11 @@ function Home () {
     const [sort, setOrder] = useState("");
     const [region, setRegion] = useState("");
 
-    const activity = useSelector(state => state.actividades)
+    const activities = useSelector(state => state.actividades)
 
     useEffect(() => {
-        dispatch(getCountries());
+        dispatch(getCountries())
+        dispatch(getActivities())
     }, [dispatch])
 
     useEffect(() => {
@@ -85,7 +86,7 @@ function Home () {
             <p>Activity:</p>
             <select onChange={activityHandler}>
                 <option value="all">All</option>
-                {activity.map(e =>(
+                {activities.map(e =>(
                     <option value={e}>{e}</option>
                 ))}
             </select>
