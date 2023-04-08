@@ -69,6 +69,7 @@ const CardsContainer = () => {
             <div>
             <button onClick={firstPage}> {'<<'} </button>
             <button onClick={prevPage}> {'<'} </button>
+            <label> {currentPage/10+1} </label>
             <button onClick={nextPage}> {'>'} </button>
             <button onClick={lastPage}> {'>>'} </button>
             </div>

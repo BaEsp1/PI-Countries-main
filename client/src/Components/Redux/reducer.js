@@ -2,9 +2,7 @@ import {
         GET_COUNTRIES,
         GET_DETAIL,
         ORDER_ASC,
-        ORDER_DSC,
         ORDER_POA,
-        ORDER_POD,
         FIL_CONTINENT,
         FIL_ACTIVITY,
         GET_ACTIVITIES,
@@ -15,10 +13,9 @@ import {
 const initialState ={
         countries : [],
         detail: [],
+        actividades: [],
         activity: [],
         error:"",
-        allContinents:[],
-        actividades: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -42,65 +39,50 @@ switch(action.type) {
                 }; 
                 }
         case ORDER_ASC: {
-                return { 
-                        ...state,
-                        countries: state.countries.slice().sort(
-                                (a , b) =>{
-                                        if(a.name < b.name) return -1
-                                        if(b.name < a.name) return 1 
-                                        return 0
-                                }
-                                )
-                        };
-                }
-        case ORDER_DSC: {
-                return { 
-                        ...state,
-                        countries: state.countries.slice().sort(
-                                (a , b) =>{
-                                        if (a.name > b.name) return 1
-                                        if (b.name > a.name) return -1
-                                        return 0;
-                                }
-                        )
-                }; }
+                let orderCountries = action.payload ==='asc' 
+                ? state.countries.sort(function (a, b) {
+                    if (a.name > b.name) return -1;
+                    if (b.name > a.name)  return 1
+                    return 0;
+                        }) 
+                :state.countries.sort(function (a, b) {
+                        if (a.name < b.name) return -1;
+                        if (b.name < a.name) return 1;
+                        return 0;
+                })
+            return {
+                ...state,
+                countries: orderCountries
+            }
+        }
         case ORDER_POA: {
-                return { 
-                        ...state,
-                        countries: state.countries.slice().sort(
-                                (a, b) =>{
-                                        if (a.population > b.population) return 1
-                                        if (b.population > a.population) return -1;
-                                        return 0;
-                                }
-                        ),
-                };
+                const orderPopulation = action.payload === 'POA' ?
+                state.countries.sort(function (a, b) {
+                        if (a.population > b.population) return -1;
+                        if (b.population > a.population)  return 1;
+                        return 0;
+                }) :
+                state.countries.sort(function (a, b) {
+                        if (a.population > b.population) return 1;
+                        if (b.population > a.population) return -1;
+                        return 0;
+                })
+        return {
+                ...state,
+                population: orderPopulation
                 }
-        case ORDER_POD: {
-                return { 
-                        ...state,
-                        countries: state.countries.slice().sort(
-                                (a, b) =>{
-                                        if (a.population > b.population) return -1
-                                        if (b.population > a.population) return 1;
-                                        return 0;
-                                }
-                                ),
-                        };
                 }
         case FIL_CONTINENT: {
-        const allC = state.allContinents;
-        const filtroConti = action.payload === "All" ? allC : allC.filter(i => i.contintents === action.payload)
                 return {
                         ...state,
-                        countries: filtroConti
+                        countries: state.countries.filter((c) => c.continent === action.payload)
                 };
         }
         case FIL_ACTIVITY:{
                 return {
                         ...state,
                         countries: state.countries.filter((c)=>{ return c.activities.some((a)=> a.name === action.payload)
-                           
+                        
                         })
                 }
 
@@ -130,3 +112,52 @@ switch(action.type) {
 };
 
 export default rootReducer;
+
+
+// case ORDER_ASC: {
+//         return { 
+//                 ...state,
+//                 countries: state.countries.slice().sort(
+//                         (a , b) =>{
+//                                 if(a.name < b.name) return -1
+//                                 if(b.name < a.name) return 1 
+//                                 return 0;
+//                         }
+//                         ),
+//                 };
+//         }
+// case ORDER_DSC: {
+//         return { 
+//                 ...state,
+//                 countries: state.countries.slice().sort(
+//                         (a , b) =>{
+//                                 if (a.name > b.name) return 1
+//                                 if (b.name > a.name) return -1
+//                                 return 0;
+//                         }
+//                 )
+//         }; }
+// case ORDER_POA: {
+//         return { 
+//                 ...state,
+//                 countries: state.countries.slice().sort(
+//                         (a, b) =>{
+//                                 if (a.population > b.population) return 1
+//                                 if (b.population > a.population) return -1;
+//                                 return 0;
+//                         }
+//                 ),
+//         };
+//         }
+// case ORDER_POD: {
+//         return { 
+//                 ...state,
+//                 countries: state.countries.slice().sort(
+//                         (a, b) =>{
+//                                 if (a.population > b.population) return -1
+//                                 if (b.population > a.population) return 1;
+//                                 return 0;
+//                         }
+//                         ),
+//                 };
+//         }

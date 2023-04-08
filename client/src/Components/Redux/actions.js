@@ -4,9 +4,7 @@ import {
     GET_DETAIL,
     GET_COUNTRY,
     ORDER_ASC,
-    ORDER_DSC,
     ORDER_POA,
-    ORDER_POD,
     FIL_CONTINENT,
     FIL_ACTIVITY,
     GET_ACTIVITIES,
@@ -81,21 +79,15 @@ export function getCountry(name) {
 // Ordenar asc y desc por nombre alfabetico de paises y canti de poblacion
 export function orderASC() {
     return {type : ORDER_ASC , 
-           }
+            }
 };
-export function orderDSC() {
-    return {type : ORDER_DSC , 
-           }
-};
+
 
 export function orderPOA() {
     return {type : ORDER_POA , 
             }
 };
-export function orderPOD() {
-    return {type : ORDER_POD , 
-            }
-};
+
 
 // Filtrar por continente y por actividad turistica:
 

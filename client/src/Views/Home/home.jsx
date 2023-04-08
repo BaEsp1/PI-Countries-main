@@ -1,7 +1,7 @@
 import CardsContainer from "../../Components/CardsContainer/CardsC";
 import {useEffect} from "react";
 import { useDispatch, useSelector , connect} from "react-redux";
-import { filActivity, filContinent, getActivities, getCountries, orderASC, orderDSC, orderPOA, orderPOD} from "../../Components/Redux/actions";
+import { filActivity, filContinent, getActivities, getCountries, orderASC,  orderPOA} from "../../Components/Redux/actions";
 import { useState } from "react";
 //import paginado
 
@@ -14,66 +14,62 @@ function Home () {
 
     const dispatch = useDispatch()
 
-    const [sort, setOrder] = useState("");
-    const [region, setRegion] = useState("");
+    const [sort, setSort] = useState("");
+    const [filConti, setFilConti] = useState("");
 
-    const activities = useSelector(state => state.actividades)
+    const filAct = useSelector(state => state.actividades)
 
     useEffect(() => {
         dispatch(getCountries())
         dispatch(getActivities())
     }, [dispatch])
 
-    useEffect(() => {
-        if (region) {
-            getCountries();
-        if (region !== "all") {
-            setTimeout(() => {
-            dispatch(filContinent(region));
-            }, 20);
-        }
-        }
-    }, [region]);
+    function handleOrder(e) {
+        e.preventDefault();
+        if (e.target.value) dispatch(orderASC(e.target.value))
+        setSort(e.target.value)
+    }
 
-    useEffect(() => {
-        if (sort === "all") getCountries();
-        else if (sort === "a-z") orderASC();
-        else if (sort === "z-a") orderDSC();
-        else if (sort === "↑ population") orderPOA();
-        else if (sort === "↓ population") orderPOD();
-    }, [sort]);
+    function handleOrderPOA(e) {
+        if (e.target.value !== "")
+        dispatch(orderPOA(e.target.value))
+        setSort(e.target.value)
+    }
+
+    useEffect(() =>{
+        if (filConti === "all") getCountries();
+        else dispatch(filContinent(filConti));
+    },[filConti])
+
+    useEffect(() =>{
+        if (filAct === "all") getCountries();
+        else filActivity();
+    },[filAct])
+
 
     const activityHandler = (e) => {
-        e.preventDefault();
-        dispatch(filActivity(e.target.value))
-        setOrder(e.target.value)
+        setSort(e.target.value)
     };
     
-    // const searchActHandler = (e) => {
-    //     e.preventDefault();
-    //     getCountries();
-    //     setTimeout(() => {
-    //     dispatch(getActivity(activity));
-    //     }, 200);
-    
-        // console.log(activity);
-        // setActivity("");
-
     return (
         <div>
 
-            <p>Sort by:</p>
-            <select onChange={(event) => setOrder(event.target.value)}>
-                <option value="All">-</option>
-                <option value="a-z">A - Z</option>
-                <option value="z-a">Z - A</option>
-                <option value="↑ population">↑ population</option>
-                <option value="↓ population">↓ population</option>
+            <p>Sort by :</p>
+            <select onChange={handleOrder}>
+                <option value="">-</option>
+                <option value='Asc' key='Asc'>A-Z</option>
+                <option value='Desc' key='Desc'>Z-A</option>
+            </select>
+                <p>Sort by population :</p>
+            <select onChange={handleOrderPOA}>
+                <option value="">-</option>
+                <option value="POA">↑ population</option>
+                <option value="POE">↓ population</option>
             </select>
 
             <p> Filter by Continent:</p>
-            <select onChange={(e) => setRegion(e.target.value)}>
-                <option value="All">All</option>
+            <select onChange={(e) => setFilConti(e.target.value)}>
+                <option value="all">All</option>
                 <option value="South America">South America</option>
                 <option value="North America">North America</option>
                 <option value="Europe">Europe</option>
@@ -84,9 +80,9 @@ function Home () {
             </select>
 
             <p>Activity:</p>
-            <select onChange={activityHandler}>
+            <select onChange={(e) => activityHandler(e.target.value)}>
                 <option value="all">All</option>
-                {activities.map(e =>(
+                {filAct.map(e =>(
                     <option value={e}>{e}</option>
                 ))}
             </select>
@@ -102,11 +98,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
       orderASC: () => dispatch(orderASC()),
       getCountries: () => dispatch(getCountries()),
-      filContinent: (region) => dispatch(filContinent(region)),
-      orderDSC: () => dispatch(orderDSC()),
-      filActivity: (payload) => dispatch(filActivity(payload)),
+      filContinent: () => dispatch(filContinent()),
+      filActivity: () => dispatch(filActivity()),
       orderPOA: () => dispatch(orderPOA()),
-      orderPOD: () => dispatch(orderPOD()),
     };
   };
 
@@ -116,5 +110,4 @@ const mapDispatchToProps = (dispatch) => {
     };
   };
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Home);
-  
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
