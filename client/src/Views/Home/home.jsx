@@ -17,7 +17,7 @@ function Home () {
     const [sort, setOrder] = useState("");
     const [region, setRegion] = useState("");
 
-    const activity = useSelector(state => state.activity)
+    const activity = useSelector(state => state.actividades)
 
     useEffect(() => {
         dispatch(getCountries());
