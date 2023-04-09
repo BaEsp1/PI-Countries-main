@@ -3,7 +3,24 @@ import {useEffect} from "react";
 import { useDispatch, useSelector , connect} from "react-redux";
 import { filActivity, filContinent, getActivities, getCountries, orderASC,  orderPOA} from "../../Components/Redux/actions";
 import { useState } from "react";
-//import paginado
+import styled from "styled-components";
+import "./home.css"
+
+const Container = styled.div`
+display: flex;
+`;
+
+const DivOrder = styled.div`
+background-color : rgb(217, 172, 245, .8);
+margin: 10px 400px 5px 400px;
+display: flex;
+justify-content: space-between;
+border-radius:120px;
+border: 5px solid rgb(217, 172, 245);
+padding: 5px;
+height: 40px;
+overflow: hidden;
+`;
 
 
 //Botones/Opciones para filtrar por continente y por tipo de actividad turística.
@@ -53,23 +70,24 @@ function Home () {
     
     return (
         <div>
+            <DivOrder>
 
-            <p>Sort by :</p>
-            <select onChange={handleOrder}>
-                <option value="">-</option>
-                <option value='Asc' key='Asc'>A-Z</option>
-                <option value='Desc' key='Desc'>Z-A</option>
+            <p className="ps">Sort by :</p>
+            <select onChange={handleOrder} >
+                <option value="">   -   </option>
+                <option value='Asc' key='Asc'> A-Z </option>
+                <option value='Desc' key='Desc'> Z-A </option>
             </select>
-                <p>Sort by population :</p>
+                <p className="ps">Sort by population :</p>
             <select onChange={handleOrderPOA}>
-                <option value="">-</option>
+                <option value="">   -   </option>
                 <option value="POA">↑ population</option>
                 <option value="POE">↓ population</option>
             </select>
 
-            <p> Filter by Continent:</p>
-            <select onChange={(e) => setFilConti(e.target.value)}>
-                <option value="all">All</option>
+            <p className="ps"> Filter by Continent:</p>
+            <select onChange={(e) => setFilConti(e.target.value)} >
+                <option value="all" >  All  </option>
                 <option value="South America">South America</option>
                 <option value="North America">North America</option>
                 <option value="Europe">Europe</option>
@@ -79,7 +97,7 @@ function Home () {
                 <option value="Antarctica">Antarctica</option>
             </select>
 
-            <p>Activity:</p>
+            <p className="ps">Activity:</p>
             <select onChange={(e) => activityHandler(e.target.value)}>
                 <option value="all">All</option>
                 {filAct.map(e =>(
@@ -87,9 +105,11 @@ function Home () {
                 ))}
             </select>
 
-                <div>
-                <CardsContainer />
-                </div>
+            </DivOrder>
+
+                <Container>
+                    <CardsContainer />
+                </Container>
         </div>
     )
 };

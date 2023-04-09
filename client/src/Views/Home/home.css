@@ -1,0 +1,11 @@
+.ps{
+    font-size: 18px;
+    font-family: Helvetica;
+    font-weight: bold;
+    background-color: rgb(217, 172, 245);
+    padding: 17px;
+    display: inline;
+    margin-top: 2px;
+    border-radius:90px; 
+};
+

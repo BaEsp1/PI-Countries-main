@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState , useEffect } from "react";
 import validate from "./validate";
-import { Link } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { getActivities , getCountries , postActivity} from "../../Components/Redux/actions";
 import { useSelector } from "react-redux";
@@ -117,8 +116,6 @@ const handleSubmit = (evento)=>{
 
     return(
         <div>
-        <br/>
-        <Link to="/home"><button>Back to home</button></Link>
     <FormDiv>
     <form onSubmit={handleSubmit}>
     <h2>Create your activity!</h2>

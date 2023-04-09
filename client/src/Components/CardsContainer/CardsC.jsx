@@ -4,19 +4,23 @@ import { useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import { getCountries } from "../Redux/actions";
 import { Link } from "react-router-dom";
+import "./CardsC.css"
 
 const DivCard = styled.div`
-border: 1px solid black;
-width: fit-content;
-height: fit-content;
-border-radious:10px;
+border: 5px solid rgb(255, 205, 140);
+width: 350px;
+height: 350px;
+display:row;
+background-color: rgb(255, 222, 180, .8);
+-webkit-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
+box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
 `
 
 const Conta = styled.div`
-border:1px solid black;
 display:flex;
 flex-direction: row;
-corder-radius: 15px;
+border-radius: 15px;
 flex-wrap: wrap;
 gap: 2em;
 margin:auto;
@@ -66,22 +70,23 @@ const CardsContainer = () => {
 
     return(
         <Conta>
-            <div>
-            <button onClick={firstPage}> {'<<'} </button>
-            <button onClick={prevPage}> {'<'} </button>
+            <div className="paginado">
+            <button onClick={firstPage} className="boton"> {'<<'} </button>
+            <button onClick={prevPage} className="boton"> {' < '} </button>
             <label> {currentPage/10+1} </label>
-            <button onClick={nextPage}> {'>'} </button>
-            <button onClick={lastPage}> {'>>'} </button>
+            <button onClick={nextPage} className="boton"> {' > '} </button>
+            <button onClick={lastPage} className="boton"> {'>>'} </button>
             </div>
+
             {filteredC.map((country) => {
                         return (
-                            <DivCard>
-                        <Link to={`/detail/${country.id}`}>
-                        <img src={country.flags} alt={country.name}/>
-                        <h2>{country.name}</h2>
-                        <h2>{country.continent}</h2>
+                        <DivCard>
+                        <Link to={`/detail/${country.id}`} className="Link">
+                        <img src={country.flags} alt={country.name} className="flags"/>
+                        <h2 className="h23">{country.name}</h2>
+                        <h2 className="h23">{country.continent}</h2>
                         </Link>
-                            </DivCard>
+                        </DivCard>
                             )})}
         </Conta>
     )

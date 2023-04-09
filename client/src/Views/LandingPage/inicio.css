@@ -1,4 +1,57 @@
-.titulo{
-    font: size 40px;
-    color:green; 
+body{
+    background-image: url("C:\Users\Mauii\Desktop\123\PI-Countries-main\client\src\img\tumblr_nw5p0rj87K1u0wuifo1_1280.jpg") ;
+    background-image: no-repeat;
+  background-image: fixed;
+  background-image: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+buttom{
+    padding:5px;
+    border-radius:120px;
+    background-color:black;
+    color: white;
+    font-size:50px;
+    font-family:Verdana,Helvetica;
+    font-weight:bold;
+    display:inline;
+    box-shadow: 5px 2px 2px black;
+}
+
+h1{
+    font-size:50px;
+    font-family:Verdana,Helvetica;
+    color:white;
+    font-weight:bold;
+}
+
+.titulo {
+    background: rgba(0, 0, 0);
+    border-radius:120px;
+    margin: 60px 300px 60px 300px ;
+    box-shadow: 9px 5px 5px grey;
+}
+
+.h22{
+    font-size:40px;
+    font-family:Helvetica;
+    margin: 50px 600px 50px 600px ;
+    font-style: oblique;
+    background: rgba(157, 153, 151, 0.9);
+    border-radius:120px;
+    box-shadow: 9px 5px 5px grey;
+}
+
+.Link {
+    padding: 5px;
+    width: 55px;
+    height:55px;
+    border-radius: 50%;
+    text-decoration:none;
+    margin-right:10px;
+    margin-left:4px;
+    margin-bottom: -7px;
 }

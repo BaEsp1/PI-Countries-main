@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 import './Nav.css'
 import SearchBar from "./SearchBar"
 
@@ -16,16 +17,18 @@ box-shadow: 5px 2px 2px black;
 `;
 
 function Nav ({onSearch}) {
+    const location= useLocation();
 
     return (
-        <div>
-
-            {/* <Link to={"/home"} className="link"><BnCheto> Home </BnCheto></Link> */}
+        <div className="div">
             <Link to={'/'} className="link" ><BnCheto>Henry Countries</BnCheto></Link>
             <Link to={"/about"} className="link"><BnCheto> About me</BnCheto></Link>
-            <Link to={"/create"} className="link"><BnCheto>Add Activity</BnCheto></Link>
- 
-            <SearchBar onSearch={onSearch}/>
+            <div className="lef">
+            { location.pathname !== "/create" &&<Link to={"/create"} className="link"><BnCheto>Add Activity</BnCheto></Link>}
+            { location.pathname === "/create" &&  <Link to={"/home"} className="link"><BnCheto> Home </BnCheto></Link> }
+            </div>
+
+            { location.pathname === "/home" &&<SearchBar onSearch={onSearch}/>}
         </div>
     )
 };

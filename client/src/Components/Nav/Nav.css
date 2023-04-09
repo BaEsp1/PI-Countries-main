@@ -8,3 +8,15 @@
     margin-left:4px;
     margin-bottom: -7px;
 }
+
+.div{
+    background-color:rgb(170, 227, 226, .8);
+    margin: 0px 0px 10px 0px;
+    padding:10px;
+    border:5px solid rgb(170, 227, 226);
+}
+
+.lef{
+    float: right;
+    margin-right:50px;
+}
