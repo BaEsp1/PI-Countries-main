@@ -1,39 +1,16 @@
-import styled from "styled-components";
 import { useState , useEffect } from "react";
 import validate from "./validate";
 import {useDispatch} from "react-redux";
 import { getActivities , getCountries , postActivity} from "../../Components/Redux/actions";
 import { useSelector } from "react-redux";
+import "./Form.css"
+import styled from "styled-components"
 
-const FormDiv = styled.div`
-background-color:grey;
-border-radius:25px;
-border: 3px solid rgb(99, 99, 99);
-margin: 150px 400px;
-box-shadow: 10px 5px 5px black;
-`;
 
-const Pe = styled.p`
-color: red;
-front-size: 10px;
-font-weight:bold;
-background-color:rgb(181, 181, 181);
-margin: 10px 110px;
-font-style: italic;
-box-shadow: 5px 2px 2px rgb(99, 99, 99);
-border-radius:25px;
-`
-const BnCheto = styled.button`
-padding:5px;
-border-radius:120px;
-background-color:black;
-color: white;
-font-size:20px;
-font-family:Verdana,Helvetica;
-font-weight:bold;
-display:inline;
-margin-left:25px;
-margin-bottom: -7px;
+let ListCountries = styled.select`
+size: 5;
+width: 200px;
+height: 150px;
 `;
 
 export default function Form () {
@@ -53,15 +30,14 @@ const countries = useSelector(state => state.countries).sort((a, b) => {
 const [userData, setUserData] = useState({
     name: "",
     difficulty:"",
-    duration:"",
     season:"",
+    duration: "",
     idPais:[],
 })
 
 const [errors, setErrors] = useState({
     name: "",
     difficulty:"",
-    duration:"",
     season:"",
     idPais:[],
 })
@@ -109,72 +85,93 @@ function handleSelectCountries(id) {
     })
 } 
 
+
 const handleSubmit = (evento)=>{
-    evento.preventDefault()
-    dispatch(postActivity(userData))
+
+    evento.preventDefault()    
+    var form = true;
+    if (userData["name"].length < 2) {
+      form = false;
+    } else if (!userData["idPais"].length >= 1) {
+      form = false;
+    } else if (userData["duration"] === "") {
+    form = false;
+  }
+    if (form) {
+        dispatch(postActivity(userData))
+
+        .then(() => alert("Activity added"));
+    } else {
+      return alert("Please fill all the fields before creating a new activity");
+    }
 };
 
     return(
         <div>
-    <FormDiv>
-    <form onSubmit={handleSubmit}>
-    <h2>Create your activity!</h2>
+    <div className="FormDiv">
+    <form onSubmit={handleSubmit} className="formus">
+    <h2 className="create">Create your activity!</h2>
     
     <label>
            Name :
            <input type="text" value={userData.name} name="name" placeholder="Put a name to create the activity" onChange={handleInputChange}/>
-           <Pe>{errors.name}</Pe>
+           <p className="pee">{errors.name}</p>
         </label>
-        <br/>
+
     <label>
-            Difficulty :
+            Difficulty : 
             <select  name="difficulty"  onChange={handleSelectDifficulty}>
-            <option value="" hidden> Select </option>
+            <option value=""> Select </option>
             <option value="1">1 - Very easy</option>
             <option value="2">2 - Easy </option>
             <option value="3">3 - Regular</option>
             <option value="4">4 - Difficult</option>
-            <option value="5">5 - Veri difficult</option>
+            <option value="5">5 - Very difficult</option>
             </select>
-            <Pe>{errors.difficulty}</Pe>
+            <p className="pee">{errors.difficulty}</p>
     </label>
-    <br/>
+
 
     <label>
-            Duration :
+            Duration : 
             <input type="number" value={userData.duration} name="duration" placeholder="Put the duration in hours" onChange={handleInputChange} min="1" max="24"/>
-            <Pe>{errors.duration}</Pe>
     </label>
-    <br/>
+
 
     <label>
-            Season :
+            Season : 
             <select name="season" onChange={handleSelectSeason}>
-            <option value="" hidden> Select </option>
+            <option value=""> Select </option>
             <option value="Summer"> Summer </option>
             <option value="Autumn">Autumn</option>
             <option value="Winter">Winter</option>
             <option value="Spring">Spring</option>
             </select>
+            <p className="pee">{errors.season}</p>
     </label>
-    <br/>
 
-    <label>
+
+    <label className="label12">
             Countries :
-            <select name="countries" onChange={handleSelectCountries}>
-            <option value="" hidden> Select </option>
+            <br/>
+            <ListCountries name="countries" onChange={handleSelectCountries} value={userData.idPais}  multiple>
+            <option value=""> Select </option>
             {countries.map(e => (
                 <option value={[e.id]} name="countries" key={e.id} >{e.name}</option>
                 ))}
-             </select>
-            <Pe>{errors.countries}</Pe>
-     </label>
-    <br/>
+                
+            </ListCountries>
+            
+            <p className="pee">{errors.idPais}</p>
 
-    <BnCheto type="submit">Submit</BnCheto>
+     </label>
+
+
+
+    <button type="submit" className="BnCheto">Submit</button>
 
     </form>
-    </FormDiv>
+    </div>
         </div>
     )
 };

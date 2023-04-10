@@ -41,18 +41,18 @@ switch(action.type) {
         case ORDER_ASC: {
                 let orderCountries = action.payload ==='asc' 
                 ? state.countries.sort(function (a, b) {
-                    if (a.name > b.name) return -1;
-                    if (b.name > a.name)  return 1
+                    if (a.name > b.name) return 1;
+                    if (b.name > a.name)  return -1
                     return 0;
                         }) 
-                :state.countries.sort(function (a, b) {
-                        if (a.name < b.name) return -1;
-                        if (b.name < a.name) return 1;
+                : state.countries.sort(function (a, b) {
+                        if (a.name > b.name) return -1;
+                        if (b.name > a.name) return 1;
                         return 0;
                 })
             return {
                 ...state,
-                countries: orderCountries
+                countries: orderCountries,
             }
         }
         case ORDER_POA: {

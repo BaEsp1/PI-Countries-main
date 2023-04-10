@@ -77,14 +77,16 @@ export function getCountry(name) {
 
 }
 // Ordenar asc y desc por nombre alfabetico de paises y canti de poblacion
-export function orderASC() {
-    return {type : ORDER_ASC , 
+export function orderASC(name) {
+    return {type : ORDER_ASC ,
+            payload:name, 
             }
 };
 
 
-export function orderPOA() {
-    return {type : ORDER_POA , 
+export function orderPOA(payload) {
+    return {type : ORDER_POA ,
+            payload,
             }
 };
 
