@@ -1,6 +1,6 @@
 import CardsContainer from "../../Components/CardsContainer/CardsC";
 import {useEffect} from "react";
-import { useDispatch, useSelector , connect} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filActivity, filContinent, getActivities, getCountries, orderASC,  orderPOA} from "../../Components/Redux/actions";
 import { useState } from "react";
 import styled from "styled-components";
@@ -60,7 +60,7 @@ function Home () {
 	}
     
     return (
-        <div>
+        <div className="White">
             <DivOrder>
 
             <p className="ps">Sort by :</p>

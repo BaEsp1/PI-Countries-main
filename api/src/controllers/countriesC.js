@@ -9,14 +9,16 @@ async function getCountries (req, res) {
                     include: Activity
                 })
 
-    if (name) {
-        const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
-        byName.length ?
-            res.json(byName) :
-            res.status(404).send({ 'msg': 'Not found' })
-    } else {
-        res.json(allCountries)
-    }
+    if (typeof name ==="string") {
+
+            const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
+            byName.length 
+            ? res.status(200).json(byName) 
+            : res.status(404).send({ 'msg': 'Not found' })
+        } else {
+            res.status(200).json(allCountries)
+        }
+
 };
 
 // ME TRAE INFO BY ID
@@ -49,7 +51,7 @@ async function  getCountriesByID (req, res) {
                 })
             }
         }
-        res.json(countries)
+        res.status(200).json(countries)
     } catch (error) {
         res.status(401).send("No se ha encontrado un pais con ese ID")
     }

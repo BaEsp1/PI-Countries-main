@@ -34,7 +34,14 @@ const inputHandler = (e) => {
 };
 
 const onClickHandler = () => {
-    dispatch(getCountry(text));
+    
+    if (typeof setText === "string"){
+        dispatch(getCountry(text));
+    }
+    else {
+
+        alert("try again, remember to use only letters")
+    }
 }
 
 const countrieshandler = () => {
@@ -45,7 +52,7 @@ const countrieshandler = () => {
     return (
         <div>
             <h3>Start looking for the country you want!</h3>
-            <InpT type='search' value={text} onChange={inputHandler} placeholder="Search a country by ID"/>
+            <InpT type='search' value={text} onChange={inputHandler} placeholder="Search a country"/>
         <BtAgrega onClick={() => onClickHandler(text)}>Search</BtAgrega> 
         <BtAgrega onClick={() => countrieshandler()}>Reset</BtAgrega>
         </div>

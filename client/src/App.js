@@ -18,7 +18,6 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
             if (data.name) {
-              //setCharacter((oldChars) => [...oldChars, data]);
               navigate("/home");
             } else {
               window.alert('Country not found');
@@ -30,7 +29,6 @@ function App() {
           .then((response) => response.json())
           .then((data) => {
               if (data.name) {
-                //setCharacter((oldChars) => [...oldChars, data]);
                 navigate("/home");
               } else {
                 window.alert('Country not found');

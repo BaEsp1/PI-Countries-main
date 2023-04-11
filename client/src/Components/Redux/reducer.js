@@ -10,7 +10,7 @@ import {
         GET_COUNTRY,
 } from "./ActionName"
 
-const initialState ={
+const initialState = {
         countries : [],
         detail: [],
         actividades: [],

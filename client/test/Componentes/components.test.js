@@ -15,7 +15,7 @@ describe('Componente LandingPage', () => {
         </BrowserRouter>
       </Provider>
     );
-    const linkElement = screen.getByText('/');
+    const linkElement = screen.getByText(/explore/i);
     expect(linkElement).toBeInTheDocument();
   });
 });
@@ -29,7 +29,7 @@ describe('Componente Navbar', () => {
         </BrowserRouter>
       </Provider>
     )
-    expect(screen.getByText(/home/i)).toBeInTheDocument()
+    expect(screen.getByText(/inicio/i)).toBeInTheDocument()
   })
 });
 
@@ -42,6 +42,6 @@ describe('Componente formulario Activity', () => {
         </BrowserRouter>
       </Provider>
     )
-    expect(screen.getByText(/create/ig)).toBeInTheDocument()
+    expect(screen.getByText(/nombre/ig)).toBeInTheDocument()
   });
 })
