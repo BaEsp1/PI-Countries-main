@@ -1,0 +1,35 @@
+.About{
+    margin: 100px 400px 0px 400px;
+    display: row;
+    background-color: rgb(238, 252, 82, .8);
+    border:3px solid rgb(238, 252, 82);
+    border-radius: 120px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.icons{
+    width:100px ;
+    height:100px ;
+    margin:0px 20px 0px 20px;
+}
+
+.titleAbout{
+background-color: rgb(238, 252, 82);
+margin: 100px 300px 0px 300px;
+color:black;
+}
+
+.me{
+    font-size: 25px;
+    font-style: oblique;
+    margin:0px 20px 0px 20px;
+}
+
+
+.Henry{
+margin: 3px 0px 0px 0px;
+width:100px ;
+height: 36px;
+border-radius: 120px;
+border: 3px solid black;
+}

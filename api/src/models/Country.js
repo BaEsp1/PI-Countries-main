@@ -42,15 +42,3 @@ module.exports = (sequelize) => {
     },
   });
 };
-
-
-// 📍 MODELO 1 | Country
-
-// ID (Código de tres letras). *
-// Nombre. *
-// Imagen de la bandera. *
-// Continente. *
-// Capital. *
-// Subregión.
-// Área.
-// Población. *

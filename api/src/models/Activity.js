@@ -1,11 +1,3 @@
-// MODELO 2 | Activity
-
-// ID. *
-// Nombre. *
-// Dificultad (número del 1 al 5). *
-// Duración (en horas).
-// Temporada (Verano, Otoño, Invierno o Primavera). *
-
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize) => {

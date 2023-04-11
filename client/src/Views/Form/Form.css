@@ -6,6 +6,7 @@
 label{
     margin:10px 0px 10px 0px;
     background-color: rgb(84, 255, 203, .9);
+    font-size:20px ;
 }
 
 .create{
@@ -18,13 +19,13 @@ label{
 
 .FormDiv{
 background-color: rgb(84, 255, 203, .7);
-border-radius:25px;
+border-radius:120px;
 border: 3px solid rgb(99, 99, 99);
 box-shadow: 10px 5px 5px black;
 padding:20px;
 display:flex;
 justify-content: center;
-margin: 80px 250px 0px 250px;
+margin: 100px 400px 0px 400px;
 }
 
 .pee{
@@ -60,4 +61,23 @@ margin-bottom: -7px;
     size: 5;
     width: 200px;
     height: 150px;
+}
+
+select{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input{
+    width: 250px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.number{
+    width: 70px;
 }

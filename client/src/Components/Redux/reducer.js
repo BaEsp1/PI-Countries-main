@@ -41,19 +41,19 @@ switch(action.type) {
         case ORDER_ASC: {
                 let orderCountries = action.payload ==='asc' 
                 ? state.countries.sort(function (a, b) {
-                    if (a.name > b.name) return 1;
-                    if (b.name > a.name)  return -1
-                    return 0;
+                        if (a.name > b.name) return 1;
+                        if (b.name > a.name)  return -1
+                        return 0;
                         }) 
                 : state.countries.sort(function (a, b) {
                         if (a.name > b.name) return -1;
                         if (b.name > a.name) return 1;
                         return 0;
                 })
-            return {
+        return {
                 ...state,
                 countries: orderCountries,
-            }
+                }
         }
         case ORDER_POA: {
                 const orderPopulation = action.payload === 'POA' ?
@@ -85,15 +85,6 @@ switch(action.type) {
                         
                         })
                 }
-
-        // const allA = state.actividades;
-        // const filtroActi = action.payload === "All" 
-        //                                         ? allA 
-        //                                         : allA.filter(c => {return c.activities.some((e) => e.name === action.payload)})
-        //         return { 
-        //                 ...state,
-        //                 countries: filtroActi
-        //         };
         }
         case GET_ACTIVITIES:{
                 return{
@@ -112,52 +103,3 @@ switch(action.type) {
 };
 
 export default rootReducer;
-
-
-// case ORDER_ASC: {
-//         return { 
-//                 ...state,
-//                 countries: state.countries.slice().sort(
-//                         (a , b) =>{
-//                                 if(a.name < b.name) return -1
-//                                 if(b.name < a.name) return 1 
-//                                 return 0;
-//                         }
-//                         ),
-//                 };
-//         }
-// case ORDER_DSC: {
-//         return { 
-//                 ...state,
-//                 countries: state.countries.slice().sort(
-//                         (a , b) =>{
-//                                 if (a.name > b.name) return 1
-//                                 if (b.name > a.name) return -1
-//                                 return 0;
-//                         }
-//                 )
-//         }; }
-// case ORDER_POA: {
-//         return { 
-//                 ...state,
-//                 countries: state.countries.slice().sort(
-//                         (a, b) =>{
-//                                 if (a.population > b.population) return 1
-//                                 if (b.population > a.population) return -1;
-//                                 return 0;
-//                         }
-//                 ),
-//         };
-//         }
-// case ORDER_POD: {
-//         return { 
-//                 ...state,
-//                 countries: state.countries.slice().sort(
-//                         (a, b) =>{
-//                                 if (a.population > b.population) return -1
-//                                 if (b.population > a.population) return 1;
-//                                 return 0;
-//                         }
-//                         ),
-//                 };
-//         }

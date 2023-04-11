@@ -1,0 +1,30 @@
+
+.DiStyle{
+    background-color: rgb(255,255,255, .8);
+    height:500px;
+    width:900px;
+    border-radius:25px;
+    box-shadow: 5px 2px 5px black;
+    border: 2px solid grey;
+    margin: 100px auto;
+    padding: 10px 70px 100px;
+}
+
+.ImgPioli{
+    float: right;
+    border-radius:25px;
+    border: 3px solid black;
+    margin-right:40px;
+    height:300px ;
+    width:480px ;
+}
+
+.BtHome{
+    border-radius:150px;
+    background-color:black;
+    color: white;
+    font-size:25px;
+    font-family:Verdana,Helvetica;
+    font-weight:bold;
+    box-shadow: 5px 2px 2px black;
+}

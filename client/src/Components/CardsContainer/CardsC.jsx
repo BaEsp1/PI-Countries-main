@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import { useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
@@ -6,16 +5,6 @@ import { getCountries } from "../Redux/actions";
 import { Link } from "react-router-dom";
 import "./CardsC.css"
 
-const DivCard = styled.div`
-border: 5px solid rgb(255, 205, 140);
-width: 350px;
-height: 350px;
-display:row;
-background-color: rgb(255, 222, 180, .8);
--webkit-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
--moz-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
-`
 
 const Conta = styled.div`
 display:flex;
@@ -63,6 +52,8 @@ const CardsContainer = () => {
     
     
     const filteredC = countries.slice(currentPage, currentPage + 10);
+
+    let pageActual= Math.floor(currentPage/10+1)
     
     useEffect(() => {
     dispatch(getCountries())
@@ -71,22 +62,22 @@ const CardsContainer = () => {
     return(
         <Conta>
             <div className="paginado">
-            <button onClick={firstPage} className="boton"> {'<<'} </button>
-            <button onClick={prevPage} className="boton"> {' < '} </button>
-            <label> {currentPage/10+1} </label>
-            <button onClick={nextPage} className="boton"> {' > '} </button>
-            <button onClick={lastPage} className="boton"> {'>>'} </button>
+                <button onClick={firstPage} className="boton"> {'<<'} </button>
+                <button onClick={prevPage} className="boton"> {' < '} </button>
+                <label className="labelPag"> {pageActual} </label>
+                <button onClick={nextPage} className="boton"> {' > '} </button>
+                <button onClick={lastPage} className="boton"> {'>>'} </button>
             </div>
 
             {filteredC.map((country) => {
                         return (
-                        <DivCard>
+                        <div className="DivCard">
                         <Link to={`/detail/${country.id}`} className="Link">
                         <img src={country.flags} alt={country.name} className="flags"/>
                         <h2 className="h23">{country.name}</h2>
                         <h2 className="h23">{country.continent}</h2>
                         </Link>
-                        </DivCard>
+                        </div>
                             )})}
         </Conta>
     )
@@ -94,10 +85,3 @@ const CardsContainer = () => {
 
 
 export default CardsContainer;
-
-// <Card 
-// id ={country.id}
-// flags = {country.flags.png}
-// name = {country.name.common}
-// continents = {country.continents}
-//         />
