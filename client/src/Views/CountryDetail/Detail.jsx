@@ -30,7 +30,7 @@ export default function Detail() {
         }, [id]);
 
         return ( 
-                <div className="DiStyle">
+                <div className="DiStyle" name="ContainerCardDetail" key="ContainerCardDetail">
                     <Link to="/home"><button className="BtHome" name="btonBack" key="btonBack"> Home </button> </Link>
 
                     <Hu>{detail.name}</Hu>

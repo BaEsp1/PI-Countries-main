@@ -48,46 +48,46 @@ function Home () {
 	}
     
     return (
-        <div className="White">
-            <div className="DivOrder">
+        <div name="ContainerHome" key="ContainerHome">
+            <div className="DivOrder" name="Order/Filter" key="Order/Filter">
 
-            <p className="ps">Sort by :</p>
-            <select onChange={(e) =>handleOrder(e)} >
-                <option value="">   -   </option>
-                <option value='asc' key='asc'> A-Z </option>
-                <option value='Desc' key='Desc'> Z-A </option>
+            <p className="ps" name="SortByName" key="SortByName">Sort by :</p>
+            <select onChange={(e) =>handleOrder(e)} name="SelectOrderAsc" key="SelectOrderAsc">
+                <option value="" key="-" name="-">   -   </option>
+                <option value='asc' key='asc' name="asc"> A-Z </option>
+                <option value='Desc' key='Desc' name="dsc"> Z-A </option>
             </select>
-                <p className="ps">Sort by population :</p>
-            <select onChange={(e) =>handleOrderPOA(e)}>
-                <option value="">   -   </option>
-                <option value="POA">↑ population</option>
-                <option value="POE">↓ population</option>
-            </select>
-
-            <p className="ps"> Filter by Continent:</p>
-            <select onChange={handleFilteredContinent} >
-                <option value="all" >  All  </option>
-                <option value="South America">South America</option>
-                <option value="North America">North America</option>
-                <option value="Europe">Europe</option>
-                <option value="Africa">Africa</option>
-                <option value="Oceania">Oceania</option>
-                <option value="Asia">Asia</option>
-                <option value="Antarctica">Antarctica</option>
+                <p className="ps" name="SortByPopulation" key="SortByPopulation">Sort by population :</p>
+            <select onChange={(e) =>handleOrderPOA(e)} name="SelectOrderPOA" key="SelectOrderPOA">
+                <option value="" name="--" key="--">   -   </option>
+                <option value="POA" name="POA" key="POA">↑ population</option>
+                <option value="POE" name="POE" key="POE">↓ population</option>
             </select>
 
-            <p className="ps">Activity:</p>
-            <select onChange={handleFilterActi}>
-                <option value="all">All</option>
+            <p className="ps" name="FilterByContinent" key="FilterByContinent"> Filter by Continent:</p>
+            <select onChange={handleFilteredContinent} name="SelectFilterContinent" key="SelectFilterContinent">
+                <option value="all"  name="AllContinents" key="AllContinents">  All  </option>
+                <option value="South America" name="OptSouthAmerica" key="OptSouthAmerica">South America</option>
+                <option value="North America" name="OptNorth America" key="OptNorth America">North America</option>
+                <option value="Europe" name="OptEurope" key="OptEurope">Europe</option>
+                <option value="Africa" name="OptAfrica" key="OptAfrica">Africa</option>
+                <option value="Oceania" name="OptOceania" key="OptOceania">Oceania</option>
+                <option value="Asia" name="OptAsia" key="OptAsia">Asia</option>
+                <option value="Antarctica" name="OptAntarctica" key="OptAntarctica">Antarctica</option>
+            </select>
+
+            <p className="ps" name="FilterActivities" key="FilterActivities">Activity:</p>
+            <select onChange={handleFilterActi} name="SelectFilterActivities" key="SelectFilterActivities">
+                <option value="all" name="AllActivities" key="AllActitivies">All</option>
                 {filAct.map(e =>(
-                    <option value={e}>{e}</option>
+                    <option value={e} name={e} key={e}>{e}</option>
                 ))}
             </select>
 
             </div>
 
-                <Container>
-                    <CardsContainer />
+                <Container name="DivCards" key="DivCards">
+                    <CardsContainer name="Card" key="Card" />
                 </Container>
         </div>
     )

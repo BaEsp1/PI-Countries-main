@@ -95,7 +95,7 @@ const handleSubmit = (evento)=>{
 };
 
     return(
-    <div className="FormDiv">
+    <div name="DivContainerForm" key="DivContainerForm" className="FormDiv" >
         <form onSubmit={handleSubmit} className="formus" name="CreateActivity" key="CreateActivity">
             <h2 className="create">Create your activity!</h2>
             
