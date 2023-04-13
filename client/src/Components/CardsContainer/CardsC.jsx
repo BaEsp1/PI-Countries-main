@@ -62,11 +62,11 @@ const CardsContainer = () => {
     return(
         <Conta>
             <div className="paginado">
-                <button onClick={firstPage} className="boton"> {'<<'} </button>
-                <button onClick={prevPage} className="boton"> {' < '} </button>
-                <label className="labelPag"> {pageActual} </label>
-                <button onClick={nextPage} className="boton"> {' > '} </button>
-                <button onClick={lastPage} className="boton"> {'>>'} </button>
+                <button onClick={firstPage} className="boton"name="btonFirst" key="btonFirst"> {'<<'} </button>
+                <button onClick={prevPage} className="boton"name="btonPrev" key="btonPrev"> {' < '} </button>
+                <label className="labelPag" name="labelPag" key="labelPag"> {pageActual} </label>
+                <button onClick={nextPage} className="boton"name="btonNext" key="btonNext"> {' > '} </button>
+                <button onClick={lastPage} className="boton"name="btonLast" key="btonLast"> {'>>'} </button>
             </div>
 
             {filteredC.map((country) => {
@@ -74,8 +74,8 @@ const CardsContainer = () => {
                         <div className="DivCard">
                         <Link to={`/detail/${country.id}`} className="Link">
                         <img src={country.flags} alt={country.name} className="flags"/>
-                        <h2 className="h23">{country.name}</h2>
-                        <h2 className="h23">{country.continent}</h2>
+                        <h2 className="h23" name="Card-Name" key="Card-Name">{country.name}</h2>
+                        <h2 className="h23" name="Card-Continent" key="Card-Continent">{country.continent}</h2>
                         </Link>
                         </div>
                             )})}

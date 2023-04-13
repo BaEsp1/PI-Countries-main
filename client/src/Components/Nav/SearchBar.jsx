@@ -28,9 +28,9 @@ const countrieshandler = () => {
 
             <input type='search' value={text} onChange={inputHandler} placeholder="Search a country" className="InputSearch"/>
 
-            <button onClick={() => onClickHandler(text)} className="BnSearch">Search</button>
+            <button onClick={() => onClickHandler(text)} className="BnSearch" name="btonSearch" key="btonSearch">Search</button>
             
-            <button onClick={() => countrieshandler()} className="BnSearch">Reset</button>
+            <button onClick={() => countrieshandler()} className="BnSearch" name="btonReset" key="btonReset">Reset</button>
         </div>
     );
 }

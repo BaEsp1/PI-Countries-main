@@ -6,7 +6,7 @@ import "./Form.css"
 import styled from "styled-components"
 
 
-let ListCountries = styled.select`
+let SelectCountries = styled.select`
 size: 5;
 width: 200px;
 height: 150px;
@@ -95,68 +95,67 @@ const handleSubmit = (evento)=>{
 };
 
     return(
-        <div className="FormDiv">
-        <form onSubmit={handleSubmit} className="formus">
-        <h2 className="create">Create your activity!</h2>
-        
-        <label>
-            Name :
-            <input type="text" value={userData.name} name="name" placeholder="Put a name to create the activity" onChange={handleInputChange}/>
-            <p className="pee">{errors.name}</p>
+    <div className="FormDiv">
+        <form onSubmit={handleSubmit} className="formus" name="CreateActivity" key="CreateActivity">
+            <h2 className="create">Create your activity!</h2>
+            
+            <label name="LabelName" key="LabelName">
+                Name :
+                <input type="text" value={userData.name} name="nameActivity" key="nameActivity" placeholder="The activity name" onChange={handleInputChange}/>
+                <p name="validationName" key="validationName" className="pee">{errors.name}</p>
             </label>
 
-        <label>
-                Difficulty : 
-                <select  name="difficulty"  onChange={handleSelectDifficulty}>
-                <option value=""> Select </option>
-                <option value="1">1 - Very easy</option>
-                <option value="2">2 - Easy </option>
-                <option value="3">3 - Regular</option>
-                <option value="4">4 - Difficult</option>
-                <option value="5">5 - Very difficult</option>
-                </select>
-                <p className="pee">{errors.difficulty}</p>
-        </label>
+            <label name="LabelDifficulty" key="LabelDifficulty">
+                    Difficulty : 
+                    <select  name="difficulty" onChange={handleSelectDifficulty} key="Difficulty">
+                    <option value="" name="Opt" key="Opt"> Select </option>
+                    <option value="1" name="Opt1" key="Opt1">1 - Very easy</option>
+                    <option value="2" name="Opt2" key="Opt2">2 - Easy </option>
+                    <option value="3" name="Opt3" key="Opt3">3 - Regular</option>
+                    <option value="4" name="Opt4" key="Opt4">4 - Difficult</option>
+                    <option value="5" name="Opt5" key="Opt5">5 - Very difficult</option>
+                    </select>
+                    <p name="ValidationDiffculty" key="ValidationDiffculty" className="pee">{errors.difficulty}</p>
+            </label>
 
 
-        <label>
-                Duration : 
-                <input type="number" value={userData.duration} name="duration" placeholder="In hours" onChange={handleInputChange} min="1" max="24" className="number"/>
-        </label>
+            <label name="LabelDuration" key="LabelDuration">
+                    Duration : 
+                    <input type="number" value={userData.duration} name="duration" placeholder="In hours" onChange={handleInputChange} min="1" max="24" className="number"/>
+            </label>
 
 
-        <label>
-                Season : 
-                <select name="season" onChange={handleSelectSeason}>
-                <option value=""> Select </option>
-                <option value="Summer"> Summer </option>
-                <option value="Autumn">Autumn</option>
-                <option value="Winter">Winter</option>
-                <option value="Spring">Spring</option>
-                </select>
-                <p className="pee">{errors.season}</p>
-        </label>
+            <label name="LabelSeason" key="LabelSeason">
+                    Season : 
+                    <select name="season" onChange={handleSelectSeason}>
+                    <option value=""> Select </option>
+                    <option value="Summer"> Summer </option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Spring">Spring</option>
+                    </select>
+                    <p name="ValidationSeason" key="ValidationSeason" className="pee">{errors.season}</p>
+            </label>
 
 
-        <label className="label12">
-                Countries :
-                <br/>
-                <ListCountries name="countries" onChange={handleSelectCountries} value={userData.idPais}  multiple>
-                <option value=""> Select </option>
-                {countries.map(e => (
-                    <option value={[e.id]} name="countries" key={e.id} >{e.name}</option>
-                    ))}
-                    
-                </ListCountries>
-                
-                <p className="pee">{errors.idPais}</p>
+            <label className="label12" name="LabelCountries" key="LabelCountries">
+                    Countries :
+                    <br/>
+                    <SelectCountries name="countries" onChange={handleSelectCountries} value={userData.idPais}  multiple>
+                    <option value=""> Select </option>
+                    {countries.map(e => (
+                        <option value={[e.id]} name="countries" key={e.id} >{e.name}</option>
+                        ))}
+                        
+                    </SelectCountries>
+                    <p name="ValidationCountries" key="ValidationCountries" className="pee">{errors.idPais}</p>
 
-        </label>
+            </label>
 
-        <button type="submit" className="BnCheto">Submit</button>
+            <button type="submit" className="BnCheto" name="BtonSubmit" key="BtonSubmit">Submit</button>
 
         </form>
 
-        </div>
+    </div>
     )
 };

@@ -10,18 +10,6 @@ const Container = styled.div`
 display: flex;
 `;
 
-const DivOrder = styled.div`
-background-color : rgb(217, 172, 245, .8);
-margin: 10px 400px 5px 400px;
-display: flex;
-justify-content: space-between;
-border-radius:120px;
-border: 5px solid rgb(217, 172, 245);
-padding: 5px;
-height: 40px;
-overflow: hidden;
-`;
-
 function Home () {
 
     const dispatch = useDispatch()
@@ -61,7 +49,7 @@ function Home () {
     
     return (
         <div className="White">
-            <DivOrder>
+            <div className="DivOrder">
 
             <p className="ps">Sort by :</p>
             <select onChange={(e) =>handleOrder(e)} >
@@ -96,7 +84,7 @@ function Home () {
                 ))}
             </select>
 
-            </DivOrder>
+            </div>
 
                 <Container>
                     <CardsContainer />

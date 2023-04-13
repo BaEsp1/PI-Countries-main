@@ -8,3 +8,16 @@
     margin-top: 2px;
     border-radius:90px; 
 };
+
+
+.DivOrder {
+background-color : rgb(217, 172, 245, .8);
+margin: 10px 400px 5px 400px;
+display: flex;
+justify-content: space-between;
+border-radius:120px;
+border: 5px solid rgb(217, 172, 245);
+padding: 5px;
+height: 40px;
+overflow: hidden;
+}

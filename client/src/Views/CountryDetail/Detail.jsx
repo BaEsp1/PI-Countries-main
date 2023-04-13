@@ -31,17 +31,17 @@ export default function Detail() {
 
         return ( 
                 <div className="DiStyle">
-                    <Link to="/home"><button className="BtHome"> Home </button> </Link>
+                    <Link to="/home"><button className="BtHome" name="btonBack" key="btonBack"> Home </button> </Link>
 
                     <Hu>{detail.name}</Hu>
-                    <img  src={detail.flags} alt={detail.name} className="ImgPioli"/> 
-                    <Tit> ID : {detail.id} </Tit>
-                    <Tit> Capital : {detail.capital}  </Tit>
-                    <Tit> Region : {detail.region}  </Tit>
-                    <Tit> Sub Region: {detail.subregion}</Tit>
-                    <Tit> Continent : {detail.continent}  </Tit>
-                    <Tit> Area : {detail.area}  </Tit>
-                    <Tit> Population : {detail.population}  </Tit>
+                    <img  src={detail.flags} alt={detail.name} className="ImgPioli" name="FlagDetail" key="FlagDetail"/> 
+                    <Tit name="tittleId" key="Id"> ID : {detail.id} </Tit>
+                    <Tit name="tittleCapital" key="Capital"> Capital : {detail.capital}  </Tit>
+                    <Tit name="tittleRegion" key="Region"> Region : {detail.region}  </Tit>
+                    <Tit name="tittleSub-region" key="Sub-region"> Sub Region: {detail.subregion}</Tit>
+                    <Tit name="tittleContinent" key="Continent"> Continent : {detail.continent}  </Tit>
+                    <Tit name="tittleArea" key="Area"> Area : {detail.area}  </Tit>
+                    <Tit name="tittlePopulation" key="Population"> Population : {detail.population}  </Tit>
                 </div>
                     
         );

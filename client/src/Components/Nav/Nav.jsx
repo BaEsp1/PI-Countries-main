@@ -8,14 +8,25 @@ function Nav ({onSearch}) {
 
     return (
         <div className="div">
-            <Link to={'/'} className="link" ><button className="BnNav">Henry Countries</button ></Link>
-            <Link to={"/about"} className="link"><button className="BnNav"> About me</button ></Link>
+            <Link to={'/'} className="link">
+                <button className="BnNav" name="btonCountries" key="btonCountries">Henry Countries</button >
+            </Link>
+
+            <Link to={"/about"} className="link">
+                <button className="BnNav" name="btonAbout" key="btonAbout"> About me</button >
+            </Link>
+
             <div className="lef">
-            { location.pathname !== "/create" && <Link to={"/create"} className="link"><button className="BnNav">Add Activity</button></Link>}
-            { location.pathname === "/create" &&  <Link to={"/home"} className="link"><button className="BnNav"> Home </button ></Link> }
+                { location.pathname !== "/create" && <Link to={"/create"} className="link">
+                    <button className="BnNav" name="btonCreate" key="btonCreate">Add Activity</button>
+                    </Link>}
+                    
+                { location.pathname === "/create" &&  <Link to={"/home"} className="link">
+                    <button className="BnNav" name="btonHome" key="btonHome"> Home </button >
+                    </Link> }
             </div>
 
-            { location.pathname === "/home" &&<SearchBar onSearch={onSearch}/>}
+            { location.pathname === "/home" &&< SearchBar onSearch={onSearch} name="SearchBar" key="SearchBar"/>}
         </div>
     )
 };
