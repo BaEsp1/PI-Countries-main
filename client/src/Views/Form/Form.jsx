@@ -22,7 +22,7 @@ const countries = useSelector(state => state.countries).sort((a, b) => {
 })
 
 const [userData, setUserData] = useState({
-    name: "",
+    name:"",
     difficulty:"",
     season:"",
     duration: "",
@@ -30,7 +30,7 @@ const [userData, setUserData] = useState({
 })
 
 const [errors, setErrors] = useState({
-    name: "",
+    name:"",
     difficulty:"",
     season:"",
     idPais:[],
@@ -101,8 +101,8 @@ const handleSubmit = (evento)=>{
             
             <label name="LabelName" key="LabelName">
                 Name :
-                <input type="text" value={userData.name} name="nameActivity" key="nameActivity" placeholder="The activity name" onChange={handleInputChange}/>
-                <p name="validationName" key="validationName" className="pee">{errors.name}</p>
+                <input type="text" value={userData.name} name="name" placeholder="The activity name" onChange={handleInputChange}/>
+                {errors.name && < p name="validationName" key="validationName" className="pee">{errors.name}</p>}
             </label>
 
             <label name="LabelDifficulty" key="LabelDifficulty">
@@ -115,7 +115,7 @@ const handleSubmit = (evento)=>{
                     <option value="4" name="Opt4" key="Opt4">4 - Difficult</option>
                     <option value="5" name="Opt5" key="Opt5">5 - Very difficult</option>
                     </select>
-                    <p name="ValidationDiffculty" key="ValidationDiffculty" className="pee">{errors.difficulty}</p>
+                   {errors.difficulty && <p name="ValidationDiffculty" key="ValidationDiffculty" className="pee">{errors.difficulty}</p>}
             </label>
 
 
@@ -134,7 +134,7 @@ const handleSubmit = (evento)=>{
                     <option value="Winter">Winter</option>
                     <option value="Spring">Spring</option>
                     </select>
-                    <p name="ValidationSeason" key="ValidationSeason" className="pee">{errors.season}</p>
+                    {errors.season && <p name="ValidationSeason" key="ValidationSeason" className="pee">{errors.season}</p>}
             </label>
 
 
@@ -148,7 +148,7 @@ const handleSubmit = (evento)=>{
                         ))}
                         
                     </SelectCountries>
-                    <p name="ValidationCountries" key="ValidationCountries" className="pee">{errors.idPais}</p>
+                    {errors.idPais && <p name="ValidationCountries" key="ValidationCountries" className="pee">{errors.idPais}</p>}
 
             </label>
 

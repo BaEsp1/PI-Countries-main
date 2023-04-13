@@ -1,7 +1,7 @@
 function validate (userData) {
 
     let errors = {};           
-    if(!userData.name){
+    if(!userData.nameActivity){
         errors.name = 'This field can not be blank';
     }
 

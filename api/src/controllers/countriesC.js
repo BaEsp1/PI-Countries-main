@@ -9,8 +9,7 @@ async function getCountries (req, res) {
                     include: Activity
                 })
 
-    if (typeof name ==="string") {
-
+    if (name) {
             const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
             byName.length 
             ? res.status(200).json(byName) 
@@ -20,6 +19,7 @@ async function getCountries (req, res) {
         }
 
 };
+
 
 // ME TRAE INFO BY ID
 async function  getCountriesByID (req, res) {

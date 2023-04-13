@@ -8,14 +8,14 @@ import {
     FIL_CONTINENT,
     FIL_ACTIVITY,
     GET_ACTIVITIES,
-    FAILURE,
+
 } from "./ActionName";
 
 const URL = "http://localhost:3001";
 
 // GET paises y GET detail:
 export function getCountries() {
-     return async function(dispatch){
+    return async function(dispatch){
         try {
             const respBack = await axios.get(URL + "/countries")
             return dispatch({
@@ -23,12 +23,9 @@ export function getCountries() {
                 payload: respBack.data,
             })
         } catch (error) {
-            return dispatch({
-                type:FAILURE,
-                payload: error.response.data.msg
-            });
+            console.log(error)
         }
-     }
+    }
 
 };
 
@@ -48,34 +45,21 @@ export function getDetail(id) {
 
 export function getCountry(name) {
     return async (dispatch) => {
-        if(name < 3){
             try {
-                const res = await axios.get(URL +`/countries/${name}`
+            const res = await axios.get(URL +`/countries?name=${name}`
                 );
                 dispatch({
                     type:GET_COUNTRY,
                     payload: res.data
                 })
+
             } catch (error) {
-                throw new Error(error)
-                }
-        } else {
-                try {
-                const res = await axios.get(URL +`/countries?name=${name}`
-                );
-                dispatch({
-                    type:GET_COUNTRY,
-                    payload: res.data
-                })
-            } catch (error) {
-                dispatch({
-                    type:FAILURE,
-                    payload: error.response.data.msg
-                })
+                console.log(error)
+                alert("country no found , try again")
         }}
     }
 
-}
+
 // Ordenar asc y desc por nombre alfabetico de paises y canti de poblacion
 export function orderASC(name) {
     return {type : ORDER_ASC ,
@@ -114,7 +98,8 @@ export function postActivity(activity) {
             const newAct = await axios.post(URL+"/activities",activity);
             console.log(newAct);
         } catch (error) {
-            throw new Error(error.message);
+           console.log(error)
+            alert("Please complete all fields")
         }
         }
 
@@ -130,10 +115,7 @@ export function getActivities () {
                 payload:respBack.data,
             })
         } catch (error) {
-            return dispatch({
-                type:FAILURE, 
-                payload: error.response.data.msg
-            });
+            throw new Error(error.message)
         }
     }
 };
