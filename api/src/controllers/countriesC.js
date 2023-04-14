@@ -5,18 +5,23 @@ const { Country, Activity } = require('../db');
 async function getCountries (req, res) {
     const { name } = req.query
 
-    const allCountries = await Country.findAll({
-                    include: Activity
-                })
-
-    if (name) {
-            const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
-            byName.length 
-            ? res.status(200).json(byName) 
-            : res.status(404).send({ 'msg': 'Not found' })
-        } else {
-            res.status(200).json(allCountries)
-        }
+    try {
+        const allCountries = await Country.findAll({
+                        include: Activity
+                    })
+    
+        if (name) {
+                const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
+                byName.length 
+                ? res.status(200).json(byName) 
+                : res.status(404).send({ 'msg': 'Not found' })
+            } else {
+                res.status(200).json(allCountries)
+            }
+        
+    } catch (error) {
+        res.status(400).send(error)
+    }
 
 };
 
@@ -53,7 +58,7 @@ async function  getCountriesByID (req, res) {
         }
         res.status(200).json(countries)
     } catch (error) {
-        res.status(401).send("No se ha encontrado un pais con ese ID")
+        res.status(401).send(error)
     }
 }
 

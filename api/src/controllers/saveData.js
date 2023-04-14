@@ -2,7 +2,7 @@ const { get } = require('superagent');
 const { Country } = require('../db');
 const axios = require('axios');
 
- async function getData () {
+async function getData () {
     const allCountries = Country.findAll();
 
     if(!allCountries.length){
@@ -21,7 +21,7 @@ const axios = require('axios');
         }
       })
         await Country.bulkCreate(apiCountries);
-        console.log('creada la base')
+        console.log('BD created')
   }
     return allCountries;
   }

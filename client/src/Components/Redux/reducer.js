@@ -1,13 +1,12 @@
 import {
         GET_COUNTRIES,
         GET_DETAIL,
+        GET_COUNTRY,
         ORDER_ASC,
         ORDER_POA,
         FIL_CONTINENT,
         FIL_ACTIVITY,
         GET_ACTIVITIES,
-        FAILURE,
-        GET_COUNTRY,
 } from "./ActionName"
 
 const initialState = {
@@ -90,11 +89,6 @@ switch(action.type) {
                 return{
                         ...state,
                         actividades: action.payload
-                }
-        }
-        case FAILURE:{
-                return {
-                        ...state,
                 }
         }
         default:

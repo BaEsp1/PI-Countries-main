@@ -5,7 +5,6 @@ import { getCountries } from "../Redux/actions";
 import { Link } from "react-router-dom";
 import "./CardsC.css"
 
-
 const Conta = styled.div`
 display:flex;
 flex-direction: row;
@@ -18,7 +17,6 @@ margin:auto;
 const CardsContainer = () => {
     const countries = useSelector((state) => state.countries);
     const dispatch = useDispatch();
-
     
     //Paginado
     const [currentPage, setCurrentPage] = useState(0);
@@ -71,11 +69,11 @@ const CardsContainer = () => {
 
             {filteredC.map((country) => {
                         return (
-                        <div className="DivCard">
+                        <div className="DivCard" name="Card" key="Card">
                         <Link to={`/detail/${country.id}`} className="Link">
-                        <img src={country.flags} alt={country.name} className="flags"/>
-                        <h2 className="h23" name="Card-Name" key="Card-Name">{country.name}</h2>
-                        <h2 className="h23" name="Card-Continent" key="Card-Continent">{country.continent}</h2>
+                            <img src={country.flags} alt={country.name} className="flags"/>
+                            <h2 className="h23" name="Card-Name" key="Card-Name">{country.name}</h2>
+                            <h2 className="h23" name="Card-Continent" key="Card-Continent">{country.continent}</h2>
                         </Link>
                         </div>
                             )})}

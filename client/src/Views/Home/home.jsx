@@ -11,7 +11,6 @@ display: flex;
 `;
 
 function Home () {
-
     const dispatch = useDispatch()
 
     const [sort, setSort] = useState("");
@@ -29,6 +28,7 @@ function Home () {
 		dispatch(orderASC(e.target.value));
         setSort(e.target.value);
 	};
+
 	const handleOrderPOA = (e) => {
 		dispatch(orderPOA(e.target.value));
         setSort(e.target.value);
@@ -40,7 +40,6 @@ function Home () {
 	}
 
 	function handleFilterActi(e) {
-		e.preventDefault();
 		e.target.value === ""
 			? dispatch(getActivities())
 			: dispatch(filActivity(e.target.value));
@@ -57,6 +56,7 @@ function Home () {
                 <option value='asc' key='asc' name="asc"> A-Z </option>
                 <option value='Desc' key='Desc' name="dsc"> Z-A </option>
             </select>
+
                 <p className="ps" name="SortByPopulation" key="SortByPopulation">Sort by population :</p>
             <select onChange={(e) =>handleOrderPOA(e)} name="SelectOrderPOA" key="SelectOrderPOA">
                 <option value="" name="--" key="--">   -   </option>
@@ -78,7 +78,7 @@ function Home () {
 
             <p className="ps" name="FilterActivities" key="FilterActivities">Activity:</p>
             <select onChange={handleFilterActi} name="SelectFilterActivities" key="SelectFilterActivities">
-                <option value="all" name="AllActivities" key="AllActitivies">All</option>
+                <option value="" name="AllActivities" key="AllActitivies">All</option>
                 {filAct.map(e =>(
                     <option value={e} name={e} key={e}>{e}</option>
                 ))}

@@ -24,6 +24,9 @@ function Nav ({onSearch}) {
                 { location.pathname === "/create" &&  <Link to={"/home"} className="link">
                     <button className="BnNav" name="btonHome" key="btonHome"> Home </button >
                     </Link> }
+                { location.pathname === "/about" &&  <Link to={"/home"} className="link">
+                    <button className="BnNav" name="btonHome" key="btonHome"> Home </button >
+                    </Link> }
             </div>
 
             { location.pathname === "/home" &&< SearchBar onSearch={onSearch} name="SearchBar" key="SearchBar"/>}

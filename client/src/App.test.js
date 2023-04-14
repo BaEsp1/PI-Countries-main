@@ -7,7 +7,7 @@ import store from './redux/store'
 import Form from "../../src/Views/Form/Form"
 
 describe('Componente LandingPage', () => {
-  it('Existe un boton de explorar! (explore!)', async () => { 
+  it('Existe un boton (Star))', async () => { 
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -15,7 +15,7 @@ describe('Componente LandingPage', () => {
         </BrowserRouter>
       </Provider>
     );
-    const linkElement = screen.getByText('/');
+    const linkElement = screen.getByText('/home');
     expect(linkElement).toBeInTheDocument();
   });
 });
@@ -42,6 +42,6 @@ describe('Componente formulario Activity', () => {
         </BrowserRouter>
       </Provider>
     )
-    expect(screen.getByText(/create/ig)).toBeInTheDocument()
+    expect(screen.getByText('/create')).toBeInTheDocument()
   });
 })

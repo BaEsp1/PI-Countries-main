@@ -11,16 +11,16 @@ function App() {
   const location= useLocation();
 
   return (
-    <div className="App">
+    <div className="App" name="ContainerApp" key="App">
 
   {location.pathname !== "/" && <Nav  />} 
 
       <Routes>
-      <Route exact path="/" element={<Inicio/>}></Route>
-      <Route path ="/home" element={<Home/>}></Route>
-      <Route path ="/about" element={<About/>}></Route>
-      <Route path ="/detail/:id" element={<Detail/>}></Route>
-      <Route path ="/create" element={<Form/>}></Route>
+      <Route exact path="/" element={<Inicio/>} name="Rout" key="Rout"></Route>
+      <Route path ="/home" element={<Home/>} name="RoutHome" key="RoutHome"></Route>
+      <Route path ="/about" element={<About/>} name="RoutAbout" key="RoutAbout"></Route>
+      <Route path ="/detail/:id" element={<Detail/>} name="RoutDetail" key="RoutDetail"></Route>
+      <Route path ="/create" element={<Form/>} name="RoutForm" key="RoutForm"></Route>
       </Routes>
     </div>
   );

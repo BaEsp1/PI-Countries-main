@@ -98,7 +98,7 @@ export function postActivity(activity) {
             const newAct = await axios.post(URL+"/activities",activity);
             console.log(newAct);
         } catch (error) {
-           console.log(error)
+            console.log(error)
             alert("Please complete all fields")
         }
         }
