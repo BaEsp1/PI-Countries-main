@@ -6,6 +6,7 @@ import Home from './Views/Home/home';
 import About from './Views/About/About';
 import Detail from './Views/CountryDetail/Detail';
 import Form  from './Views/Form/Form';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const location= useLocation();
@@ -22,6 +23,8 @@ function App() {
       <Route path ="/detail/:id" element={<Detail/>} name="RoutDetail" key="RoutDetail"></Route>
       <Route path ="/create" element={<Form/>} name="RoutForm" key="RoutForm"></Route>
       </Routes>
+      
+  {location.pathname !== "/" && <Footer />} 
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.logoGit{
+ width: 10px;
+ height: 10px;
+}
+
+.futer{
+ background-color: rgb(238, 252, 82, .8);
+ display: inline;
+ justify-content: left;
+}
+
+.futlogo{
+background-color: rgb(238, 252, 82);
+color: black;
+font-weight: bold;
+font-style: oblique;
+}
