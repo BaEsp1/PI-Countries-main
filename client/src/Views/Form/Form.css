@@ -8,7 +8,13 @@ label{
     background-color: rgb(84, 255, 203, .9);
     font-size:20px ;
 }
-
+@media screen and (max-width: 700px) {
+    label{
+        font-size:13px ;
+        height: auto;
+        width: auto;
+    }
+  }
 .create{
     background-color: white;
     font-size: 30px;
@@ -69,6 +75,13 @@ select{
     font-size: 15px;
     font-weight: bold;
 }
+@media screen and (max-width: 700px) {
+    select{
+        font-size: 13px;
+        width: 100px;
+        height: 20px;
+    }
+  }
 
 input{
     width: 250px;

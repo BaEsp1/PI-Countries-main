@@ -7,8 +7,13 @@
     display: inline;
     margin-top: 2px;
     border-radius:90px; 
-};
+}
 
+@media screen and (max-width: 700px) {
+    .ps{
+display: none;
+    }
+  }
 
 .DivOrder {
 background-color : rgb(217, 172, 245, .8);
@@ -21,3 +26,9 @@ padding: 5px;
 height: 40px;
 overflow: hidden;
 }
+
+@media screen and (max-width: 700px) {
+    .DivOrder{
+    display: contents;
+    }
+  }

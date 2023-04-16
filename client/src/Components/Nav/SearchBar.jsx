@@ -23,7 +23,7 @@ const countrieshandler = () => {
 
 
     return (
-        <div>
+        <div className="DivSearch">
             <h2 className="TitleSearch">Start looking for the country you want!</h2>
 
             <input type='search' value={text} onChange={inputHandler} placeholder="Search a country" className="InputSearch"/>

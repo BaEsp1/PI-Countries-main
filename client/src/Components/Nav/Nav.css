@@ -11,15 +11,28 @@
 
 .divNav{
     background-color:rgb(170, 227, 226, .8);
-    margin: 0px 0px 10px 0px;
     padding:10px;
     border:5px solid rgb(170, 227, 226);
 }
+@media screen and (max-width: 700px) {
+    .divNav{
+        display: flex;
+        float:left;
+        justify-content: space-between;
+        padding: -10px;
+    }
+  }
 
 .lef{
     float: right;
     margin-right:50px;
 }
+@media screen and (max-width: 700px) {
+    .lef{
+        font-size: 13px;
+        margin:-10px;        
+    }
+  }
 
 .BnNav{
     padding:5px;
@@ -34,8 +47,21 @@
     float: left;
     margin: 0px 20px 0px 20px
 }
+@media screen and (max-width: 700px) {
+    .BnNav{
+        font-size: 13px;
+        margin-right:-2px;
+        margin-left: -1px;
+    }
+  }
 
 .world{
     width: 20px;
     height: 20px;
 }
+@media screen and (max-width: 700px) {
+    .world{
+        width: 10px;
+        height: 10px;
+    }
+  }

@@ -5,14 +5,6 @@ import { getCountries } from "../Redux/actions";
 import { Link } from "react-router-dom";
 import "./CardsC.css"
 
-const Conta = styled.div`
-display:flex;
-flex-direction: row;
-border-radius: 15px;
-flex-wrap: wrap;
-gap: 2em;
-margin:auto;
-`;
 
 const CardsContainer = () => {
     const countries = useSelector((state) => state.countries);
@@ -58,7 +50,7 @@ const CardsContainer = () => {
     }, [dispatch])
 
     return(
-        <Conta>
+        <div className="Conta">
             <div className="paginado">
                 <button onClick={firstPage} className="boton"name="btonFirst" key="btonFirst"> {'<<'} </button>
                 <button onClick={prevPage} className="boton"name="btonPrev" key="btonPrev"> {' < '} </button>
@@ -77,7 +69,7 @@ const CardsContainer = () => {
                         </Link>
                         </div>
                             )})}
-        </Conta>
+        </div>
     )
 }
 

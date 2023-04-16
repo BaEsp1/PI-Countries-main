@@ -18,11 +18,21 @@
     background-color: rgb(255, 222, 180, .8);
     padding:10px;
 }
-
+@media (max-width: 800px) {
+  .h23 {
+font-size: 15px;
+  }
+}
 .flags{
     width: 200px;
     height: 150px;
     border: 2px solid black;
+}
+@media (max-width: 800px) {
+  .flags {
+    width: 120px;
+    height: 80px;
+  }
 }
 
 .paginado{
@@ -32,6 +42,12 @@
     border: 5px solid rgb(170, 203, 115);
     padding:10px;
 }
+@media (max-width: 800px) {
+    .paginado {
+      margin:auto;
+      font-size: 10px;
+    }
+  }
 
 .boton{
     padding:5px;
@@ -44,6 +60,13 @@
     border: 0.5px solid black;
     margin: 0px 5px 0px 5px;
 }
+
+@media (max-width: 800px) {
+    .boton {
+      margin:auto;
+      font-size: 13px;
+    }
+  }
 
 label{
     font-size:20px;
@@ -64,8 +87,30 @@ label{
     -moz-box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
     box-shadow: 7px 10px 35px -10px rgba(0,0,0,0.75);
 }
-
+@media (max-width: 800px) {
+  .DivCard {
+width: 200px;
+height: 200px;
+  }
+}
 .labelPag{
     background-color:rgb(199, 248, 120);
     border: 0.5px solid black;
 }
+
+.Conta{
+    display:flex;
+    flex-direction: row;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin:auto;
+}
+
+  
+  /* Responsive layout - makes a one column layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .Conta {
+      flex-direction: column;
+    }
+  }
