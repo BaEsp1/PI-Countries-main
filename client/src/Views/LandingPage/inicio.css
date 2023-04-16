@@ -1,5 +1,5 @@
 body{
-    background-image: url("C:\Users\Mauii\Desktop\123\PI-Countries-main\client\src\img\tumblr_nw5p0rj87K1u0wuifo1_1280.jpg") ;
+    background-image: url("C:\Users\GracielaPon\Documents\GitHub\PI-Countries-main\client\src\img\tumblr_nw5p0rj87K1u0wuifo1_1280.jpg") ;
     background-image: no-repeat;
     background-image: fixed;
     background-image: center;
@@ -8,6 +8,12 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
+
+@media screen and (max-width: 700px) {
+    div{
+      display: inline-block;
+    }
+  }
 
 buttom{
     padding:5px;

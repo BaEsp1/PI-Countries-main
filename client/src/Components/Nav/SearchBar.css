@@ -19,3 +19,10 @@
     border: 1px solid rgb(11, 178, 255);
     box-shadow: 5px 2px 2px grey;
 }
+
+.TitleSearch{
+    background-color:rgb(11, 178, 255 , .3) ;
+    font-weight: bold;
+    margin: 10px 700px 5px 700px;
+    border-radius: 120px;
+}

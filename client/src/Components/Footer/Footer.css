@@ -1,12 +1,11 @@
 .logoGit{
- width: 10px;
- height: 10px;
+ width: 20px;
+ height: 20px;
 }
 
 .futer{
  background-color: rgb(238, 252, 82, .8);
  display: inline;
- justify-content: left;
 }
 
 .futlogo{

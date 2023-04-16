@@ -7,9 +7,9 @@ function Nav ({onSearch}) {
     const location= useLocation();
 
     return (
-        <div className="div">
+        <div className="divNav">
             <Link to={'/'} className="link">
-                <button className="BnNav" name="btonCountries" key="btonCountries">Henry Countries</button >
+                <button className="BnNav" name="btonCountries" key="btonCountries"><img src="https://cdn-icons-png.flaticon.com/512/814/814513.png" className="world"/> Henry Countries</button >
             </Link>
 
             <Link to={"/about"} className="link">

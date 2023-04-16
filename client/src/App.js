@@ -12,7 +12,7 @@ function App() {
   const location= useLocation();
 
   return (
-    <div className="App" name="ContainerApp" key="App">
+    <div className="containerApp" name="ContainerApp" key="App">
 
   {location.pathname !== "/" && <Nav  />} 
 
@@ -23,7 +23,7 @@ function App() {
       <Route path ="/detail/:id" element={<Detail/>} name="RoutDetail" key="RoutDetail"></Route>
       <Route path ="/create" element={<Form/>} name="RoutForm" key="RoutForm"></Route>
       </Routes>
-      
+
   {location.pathname !== "/" && <Footer />} 
     </div>
   );
