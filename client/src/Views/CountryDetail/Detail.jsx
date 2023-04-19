@@ -35,13 +35,13 @@ export default function Detail() {
 
                     <Hu>{detail.name}</Hu>
                     <img  src={detail.flags} alt={detail.name} className="ImgPioli" name="FlagDetail" key="FlagDetail"/> 
-                    <Tit name="tittleId" key="Id"> ID : {detail.id} </Tit>
-                    <Tit name="tittleCapital" key="Capital"> Capital : {detail.capital}  </Tit>
-                    <Tit name="tittleRegion" key="Region"> Region : {detail.region}  </Tit>
-                    <Tit name="tittleSub-region" key="Sub-region"> Sub Region: {detail.subregion}</Tit>
-                    <Tit name="tittleContinent" key="Continent"> Continent : {detail.continent}  </Tit>
-                    <Tit name="tittleArea" key="Area"> Area : {detail.area}  </Tit>
-                    <Tit name="tittlePopulation" key="Population"> Population : {detail.population}  </Tit>
+                    <Tit name="tittleId" key="Id" className="Tit"> ID : {detail.id} </Tit>
+                    <Tit name="tittleCapital" key="Capital" className="Tit"> Capital : {detail.capital}  </Tit>
+                    <Tit name="tittleRegion" key="Region" className="Tit"> Region : {detail.region}  </Tit>
+                    <Tit name="tittleSub-region" key="Sub-region" className="Tit"> Sub Region: {detail.subregion}</Tit>
+                    <Tit name="tittleContinent" key="Continent" className="Tit"> Continent : {detail.continent}  </Tit>
+                    <Tit name="tittleArea" key="Area" className="Tit"> Area : {detail.area}  </Tit>
+                    <Tit name="tittlePopulation" key="Population" className="Tit"> Population : {detail.population}  </Tit>
                 </div>
                     
         );

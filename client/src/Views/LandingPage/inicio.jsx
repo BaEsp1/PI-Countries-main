@@ -5,11 +5,11 @@ import './inicio.css';
 
 function Inicio() {
     return (
-        <div name="DivLandingPage" key="DivLandingPage">
+        <div name="DivLandingPage" key="DivLandingPage" className='DivLan'>
 
             <div className='titulo' name="TitleLanding" key="TitleLanding">
-                <h1> Individual Project </h1>
-                <h1> Henry Countries </h1>
+                <h1 className="tit"> Individual Project </h1>
+                <h1 className="tit"> Henry Countries </h1>
             </div>
 
             <h2 className='h22'name="PLanding1" key="PLanding1"> Developed by Baesp </h2>

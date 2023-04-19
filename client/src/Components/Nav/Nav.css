@@ -17,7 +17,6 @@
 @media screen and (max-width: 700px) {
     .divNav{
         display: flex;
-        float:left;
         justify-content: space-between;
         padding: -10px;
     }
@@ -50,8 +49,9 @@
 @media screen and (max-width: 700px) {
     .BnNav{
         font-size: 13px;
-        margin-right:-2px;
-        margin-left: -1px;
+        margin-right:-6px;
+        margin-left: 28px;
+        float: right;
     }
   }
 

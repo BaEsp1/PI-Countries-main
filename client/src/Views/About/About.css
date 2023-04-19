@@ -7,11 +7,24 @@
     box-shadow: 10px 5px 5px black;
 }
 
+@media screen and (max-width: 700px) {
+    .About{
+margin: auto;
+     }
+   }
+
 .icons{
     width:100px ;
     height:100px ;
     margin:0px 20px 0px 20px;
 }
+@media screen and (max-width: 700px) {
+    .icons{
+height: 50px;
+width:  50px;
+     }
+   }
+
 
 .titleAbout{
 background-color: rgb(238, 252, 82);
@@ -19,12 +32,25 @@ margin: 100px 300px 0px 300px;
 color:black;
 }
 
+@media screen and (max-width: 700px) {
+    .titleAbout{
+margin: 50px auto 0px;
+border-radius: 120px;
+font-size: 25px;
+     }
+   }
+
 .me{
     font-size: 25px;
     font-style: oblique;
     margin:0px 20px 0px 20px;
 }
 
+@media screen and (max-width: 700px) {
+    .me{
+font-size: 15px;
+     }
+   }
 
 .Henry{
 margin: 3px 0px 0px 0px;
@@ -33,3 +59,10 @@ height: 36px;
 border-radius: 120px;
 border: 3px solid black;
 }
+
+@media screen and (max-width: 700px) {
+    .Henry{
+ width: 50px;
+ height: 20px;
+     }
+   }

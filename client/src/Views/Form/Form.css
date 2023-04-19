@@ -3,6 +3,12 @@
     display: grid;
 }
 
+@media screen and (max-width: 700px) {
+    .formus{
+margin:auto;
+     }
+   }
+
 label{
     margin:10px 0px 10px 0px;
     background-color: rgb(84, 255, 203, .9);
@@ -33,6 +39,12 @@ display:flex;
 justify-content: center;
 margin: 100px 400px 0px 400px;
 }
+
+@media screen and (max-width: 700px) {
+    .FormDiv{
+        margin: auto;
+     }
+   }
 
 .pee{
 color: white;

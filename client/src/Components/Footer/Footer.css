@@ -13,4 +13,6 @@ background-color: rgb(238, 252, 82);
 color: black;
 font-weight: bold;
 font-style: oblique;
+margin:auto;
+display: contents;
 }

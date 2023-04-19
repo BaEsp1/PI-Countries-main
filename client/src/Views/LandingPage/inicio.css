@@ -9,11 +9,6 @@ body{
     background-size: cover;
 }
 
-@media screen and (max-width: 700px) {
-    body{
-      background-size:contain;
-    }
-  }
 
 buttom{
     padding:5px;
@@ -26,6 +21,21 @@ buttom{
     display:inline;
     box-shadow: 5px 2px 2px black;
 }
+@media screen and (max-width: 1400px) {
+    buttom{
+      font-size: 30px;
+     }
+   }
+ 
+   @media screen and (max-width: 700px) {
+    buttom{
+      font-size: 25px;
+      margin-top: 80px;
+      display: flex;
+    justify-content: center;
+     }
+   }
+
 
 h1{
     font-size:50px;
@@ -34,12 +44,38 @@ h1{
     font-weight:bold;
 }
 
+@media screen and (max-width: 700px) {
+    h1{
+      font-size: 30px;
+     }
+   }
+
 .titulo {
     background: rgba(0, 0, 0);
     border-radius:120px;
     margin: 60px 300px 60px 300px ;
     box-shadow: 9px 5px 5px grey;
 }
+@media screen and (max-width: 700px) {
+    .titulo{
+margin: auto;
+     }
+   }
+
+@media screen and (max-width: 1400px) {
+   .tit{
+     font-size: 25px;
+     margin-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .tit{
+      font-size: 20px;
+      margin: auto;
+     }
+   }
+
 
 .h22{
     font-size:40px;
@@ -50,6 +86,23 @@ h1{
     border-radius:120px;
     box-shadow: 9px 5px 5px grey;
 }
+
+@media screen and (max-width: 1400px) {
+    .h22{
+      margin-top: 20px;
+      margin-bottom: 15px;
+      font-size:22px;
+      display: inline-block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .h22{
+margin: 20px auto 10px auto;
+display: block;
+     }
+   }
+
 
 .Link {
     padding: 5px;
