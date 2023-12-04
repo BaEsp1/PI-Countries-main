@@ -23,11 +23,13 @@ const { conn } = require('./src/db.js');
 const {getData} = require('./src/controllers/saveData.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true})
+conn.sync()
   .then(() => {
     server.listen(3001, async () => {
       console.log("Servidor ON")
-            getData();
-          }
-        );
+      getData();
+    });
+  })
+  .catch((error) => {
+    console.error('Error syncing database:', error);
   });
