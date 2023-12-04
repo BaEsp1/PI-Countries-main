@@ -1,6 +1,8 @@
 {
   "functions": {
-    "api": "PI-Countries-main/api/App.js"
+    "api": {
+      "handler": "PI-Countries-main/api/App.js",
+      "runtime": "vercel-node@2.5.1"
+    }
   }
 }
-
