@@ -1,35 +1,17 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {getData} = require('./src/controllers/saveData.js');
 
 // Syncing all the models at once.
+console.log('Iniciando la aplicación');
 conn.sync()
   .then(() => {
+    console.log('Base de datos sincronizada');
     server.listen(3001, async () => {
-      console.log("Servidor ON")
+      console.log('Servidor ON');
       getData();
     });
   })
   .catch((error) => {
-    console.error('Error syncing database:', error);
+    console.error('Error sincronizando la base de datos:', error);
   });
