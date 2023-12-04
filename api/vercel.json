@@ -1,6 +1,6 @@
 {
   "functions": {
-    "App.js": {
+    "api/App.js": {
       "runtime": "vercel-node@2.5.1"
     }
   }
