@@ -24,7 +24,8 @@
     "jets": "^0.15.0",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "vercel": "^32.6.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
