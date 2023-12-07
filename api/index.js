@@ -11,16 +11,6 @@ conn.sync()
     server.listen(port, async () => {
       console.log('Servidor ON');
       getData();
-      server.get("/", (req, res) => {
-        const htmlResponse = `
-          <html>
-            <body>
-              <h1>Soy un proyecto Back end en vercel</h1>
-            </body>
-          </html>
-        `;
-        res.send(htmlResponse);
-      });
     });
   })
   .catch((error) => {
