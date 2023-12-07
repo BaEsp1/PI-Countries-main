@@ -33,5 +33,6 @@
     "sequelize": "^6.3.5",
     "supertest": "^6.0.1",
     "supertest-session": "^4.1.0"
+    
   }
 }
