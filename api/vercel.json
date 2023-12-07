@@ -1,16 +1,21 @@
-{   
-      "builds": [
-        {
-          "src": "./index.js",
-          "use": "@vercel/node"
-        }
-      ],
-      "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/"
-        }
-      ],
-          "public": false
-    
+{
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "vercel@2",
+      "includeFiles": "api/**/*"
+    }
+  },
+  "public": false,
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
 }
