@@ -2,13 +2,16 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {POSTGRES_URL} = process.env;
-import pg from 'pg';
+const { POSTGRES_URL } = process.env;
+import pg from "pg";
 
 const sequelize = new Sequelize(POSTGRES_URL, {
   dialectModule: pg,
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  logging: false,
+  native: false,
+  dialectOptions: {
+    ssl: true,
+  },
 });
 const basename = path.basename(__filename);
 
