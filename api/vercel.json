@@ -3,7 +3,8 @@
     "api/**/*.js": {
       "runtime": "vercel@2",
       "includeFiles": "api/**/*"
-    }
+    },
+    "api/node_modules/pg/**/*": {}
   },
   "public": false,
   "builds": [
